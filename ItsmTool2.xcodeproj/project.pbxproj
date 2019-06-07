@@ -16,6 +16,7 @@
 		22F2B7B122AB2BC1000EE7AB /* ItsmTool2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7B022AB2BC1000EE7AB /* ItsmTool2UITests.swift */; };
 		22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */; };
 		22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */; };
+		22F2B7C322AB302B000EE7AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7C222AB302B000EE7AB /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		22F2B7B222AB2BC1000EE7AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		22F2B7C222AB302B000EE7AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				22F2B79C22AB2BC1000EE7AB /* Info.plist */,
 				22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */,
 				22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */,
+				22F2B7C222AB302B000EE7AB /* HomeViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F2B7C322AB302B000EE7AB /* HomeViewController.swift in Sources */,
 				22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */,
 				22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */,
 				22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */,
