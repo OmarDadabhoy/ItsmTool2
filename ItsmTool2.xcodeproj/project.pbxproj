@@ -14,6 +14,8 @@
 		22F2B79B22AB2BC1000EE7AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B79922AB2BC1000EE7AB /* LaunchScreen.storyboard */; };
 		22F2B7A622AB2BC1000EE7AB /* ItsmTool2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7A522AB2BC1000EE7AB /* ItsmTool2Tests.swift */; };
 		22F2B7B122AB2BC1000EE7AB /* ItsmTool2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7B022AB2BC1000EE7AB /* ItsmTool2UITests.swift */; };
+		22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */; };
+		22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		22F2B7AC22AB2BC1000EE7AB /* ItsmTool2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItsmTool2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F2B7B022AB2BC1000EE7AB /* ItsmTool2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItsmTool2UITests.swift; sourceTree = "<group>"; };
 		22F2B7B222AB2BC1000EE7AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				22F2B79722AB2BC1000EE7AB /* Assets.xcassets */,
 				22F2B79922AB2BC1000EE7AB /* LaunchScreen.storyboard */,
 				22F2B79C22AB2BC1000EE7AB /* Info.plist */,
+				22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */,
+				22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -256,7 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */,
 				22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */,
+				22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */,
 				22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
