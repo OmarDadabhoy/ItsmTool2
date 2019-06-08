@@ -18,19 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gH-fW-fyB">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gH-fW-fyB">
                                 <rect key="frame" x="147" y="729" width="121" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <inset key="contentEdgeInsets" minX="-20" minY="20" maxX="-20" maxY="20"/>
                                 <state key="normal" title="Signup"/>
                                 <connections>
                                     <segue destination="iT4-wF-uDU" kind="show" id="RBI-WX-ogF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abk-Do-zcs">
-                                <rect key="frame" x="160" y="661" width="95" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abk-Do-zcs">
+                                <rect key="frame" x="160" y="627" width="95" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <inset key="contentEdgeInsets" minX="-20" minY="22" maxX="-20" maxY="20"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <segue destination="Rb2-Yn-jbc" kind="show" id="X9X-zI-zxe"/>
@@ -38,19 +38,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Abk-Do-zcs" secondAttribute="bottom" constant="153" id="2LD-Gx-4VM"/>
-                            <constraint firstItem="6gH-fW-fyB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="641" id="58s-PT-h2F"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6gH-fW-fyB" secondAttribute="trailing" constant="146" id="FPb-yq-khd"/>
-                            <constraint firstItem="6gH-fW-fyB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="147" id="Stt-Eg-adQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6gH-fW-fyB" secondAttribute="bottom" constant="73" id="h6g-BW-Yfm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Abk-Do-zcs" secondAttribute="trailing" constant="159" id="lVW-R5-fGd"/>
-                            <constraint firstItem="Abk-Do-zcs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="573" id="os1-2H-pNg"/>
-                            <constraint firstItem="Abk-Do-zcs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="u0g-W2-6Vh"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="5WY-X0-98c"/>
+                    <connections>
+                        <segue destination="Veg-pP-wWy" kind="show" identifier="alreadyLoggedIn" id="OIG-QT-7pX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,21 +76,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBe-3Q-Ivt">
                                 <rect key="frame" x="20" y="306" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nh4-Md-62c">
                                 <rect key="frame" x="20" y="389" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Retype Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKR-aN-jac">
                                 <rect key="frame" x="20" y="344" width="222" height="37"/>
@@ -112,13 +105,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Create Account"/>
                                 <connections>
-                                    <segue destination="Veg-pP-wWy" kind="show" id="BY4-mQ-zGt"/>
+                                    <action selector="signup:" destination="iT4-wF-uDU" eventType="touchUpInside" id="JOa-vQ-JHE"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qnM-Bc-JLY"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="vna-WV-SoN" id="9f0-zn-UHq"/>
+                        <outlet property="password" destination="JBe-3Q-Ivt" id="88B-0f-ajW"/>
+                        <outlet property="retypePassword" destination="nh4-Md-62c" id="XZf-Dl-gsX"/>
+                        <segue destination="Veg-pP-wWy" kind="show" identifier="signupToHome" id="zcm-fh-jGb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfF-hy-l4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,14 +165,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mop-BD-dQk">
                                 <rect key="frame" x="20" y="391" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUM-iO-ACa">
                                 <rect key="frame" x="174" y="535" width="72" height="48"/>
@@ -183,7 +182,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Veg-pP-wWy" kind="show" id="Zj2-kE-sSj"/>
+                                    <action selector="signIn:" destination="Rb2-Yn-jbc" eventType="touchUpInside" id="GGw-a7-oal"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21t-1f-hyC">
@@ -196,6 +195,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="M7d-Di-I57"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="vOg-ld-KSA" id="tCj-cP-btY"/>
+                        <outlet property="password" destination="Mop-BD-dQk" id="Vl5-ho-4Vk"/>
+                        <segue destination="Veg-pP-wWy" kind="show" identifier="loginToHome" id="RNF-hu-X77"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghd-Oz-Adi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -221,6 +225,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BY4-mQ-zGt"/>
+        <segue reference="OIG-QT-7pX"/>
     </inferredMetricsTieBreakers>
 </document>
