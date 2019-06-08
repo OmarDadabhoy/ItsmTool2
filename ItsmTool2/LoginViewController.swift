@@ -36,6 +36,17 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    //This function handles when the user forgets their password
+    @IBAction func forgotPassword(_ sender: Any) {
+        Auth.auth().sendPasswordReset(withEmail: email.text!){ error in
+            let alertController = UIAlertController(title: "Email Sent", message: "Check your email for details on how to reset your password", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 
