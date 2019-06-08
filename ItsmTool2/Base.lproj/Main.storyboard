@@ -18,26 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abk-Do-zcs">
-                                <rect key="frame" x="160" y="644" width="95" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="Rb2-Yn-jbc" kind="show" id="X9X-zI-zxe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gH-fW-fyB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gH-fW-fyB">
                                 <rect key="frame" x="147" y="729" width="121" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="-20" minY="20" maxX="-20" maxY="20"/>
                                 <state key="normal" title="Signup"/>
                                 <connections>
                                     <segue destination="iT4-wF-uDU" kind="show" id="RBI-WX-ogF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abk-Do-zcs">
+                                <rect key="frame" x="160" y="661" width="95" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="-20" minY="22" maxX="-20" maxY="20"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="Rb2-Yn-jbc" kind="show" id="X9X-zI-zxe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Abk-Do-zcs" secondAttribute="bottom" constant="153" id="2LD-Gx-4VM"/>
+                            <constraint firstItem="6gH-fW-fyB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="641" id="58s-PT-h2F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6gH-fW-fyB" secondAttribute="trailing" constant="146" id="FPb-yq-khd"/>
+                            <constraint firstItem="6gH-fW-fyB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="147" id="Stt-Eg-adQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6gH-fW-fyB" secondAttribute="bottom" constant="73" id="h6g-BW-Yfm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Abk-Do-zcs" secondAttribute="trailing" constant="159" id="lVW-R5-fGd"/>
+                            <constraint firstItem="Abk-Do-zcs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="573" id="os1-2H-pNg"/>
+                            <constraint firstItem="Abk-Do-zcs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="u0g-W2-6Vh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="5WY-X0-98c"/>
