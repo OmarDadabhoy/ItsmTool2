@@ -18,6 +18,9 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var employerOrEmployee = UIPickerView()
     let pickerData: [String] = [String](arrayLiteral: "Employer", "Employee")
     @IBOutlet weak var employerOrEmployeeField: UITextField!
+    @IBOutlet weak var accessCodeLabel: UILabel!
+    @IBOutlet weak var accessCodeorCompanyNameField: UITextField!
+    @IBOutlet weak var companyNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.employerOrEmployeeField.inputView = employerOrEmployee
         //set the fields original text to the "Employer"
         self.employerOrEmployeeField.text = pickerData[0]
+        self.accessCodeLabel.isHidden = true
     }
     
     //Signs the user up for the application
@@ -78,13 +82,17 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         employerOrEmployeeField.text = pickerData[row]
         if(row == 1){
             ifEmployee()
+        } else{
+            self.accessCodeLabel.isHidden = true
+            self.companyNameLabel.isHidden = false
         }
     }
     
     //if the user selects employee then do this
     func ifEmployee(){
         //reveal these fields so the employee can input his or her access code given by the employer
-        
+        self.accessCodeLabel.isHidden = false
+        self.companyNameLabel.isHidden = true
     }
     
     /*

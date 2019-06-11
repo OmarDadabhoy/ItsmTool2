@@ -136,11 +136,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35a-o0-Bbl">
+                                <rect key="frame" x="20" y="583" width="209" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qnM-Bc-JLY"/>
                     </view>
                     <connections>
+                        <outlet property="accessCodeLabel" destination="IGp-gE-hwy" id="TSk-F6-hWJ"/>
+                        <outlet property="accessCodeorCompanyNameField" destination="gOO-Dm-psB" id="XrH-ho-HWa"/>
+                        <outlet property="companyNameLabel" destination="35a-o0-Bbl" id="CFR-aT-aLn"/>
                         <outlet property="email" destination="vna-WV-SoN" id="9f0-zn-UHq"/>
                         <outlet property="employerOrEmployeeField" destination="RkN-lE-Abv" id="Zpm-Ca-hr2"/>
                         <outlet property="password" destination="JBe-3Q-Ivt" id="88B-0f-ajW"/>
