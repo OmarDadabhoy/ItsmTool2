@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -43,6 +44,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.present(alertController, animated: true, completion: nil)
         }
         else{
+            
             Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
                 if error == nil {
                     self.performSegue(withIdentifier: "signupToHome", sender: self)
@@ -55,6 +57,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
+            
         }
     }
     
