@@ -10,16 +10,24 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var retypePassword: UITextField!
+    var employerOrEmployee = UIPickerView()
+    let pickerData: [String] = [String](arrayLiteral: "Employer", "Employee")
+    @IBOutlet weak var employerOrEmployeeField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.employerOrEmployee.delegate = self
+        //make sure the field can only get data from the picker
+        self.employerOrEmployeeField.inputView = employerOrEmployee
+        //set the fields original text to the "Employer"
+        self.employerOrEmployeeField.text = pickerData[0]
     }
     
     //Signs the user up for the application
@@ -44,6 +52,39 @@ class SignupViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //number of column components in the picker
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //number of rows in the picker
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //The current item
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    //contains what is selected
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        employerOrEmployeeField.text = pickerData[row]
+        if(row == 1){
+            ifEmployee()
+        }
+    }
+    
+    //if the user selects employee then do this
+    func ifEmployee(){
+        //reveal these fields so the employee can input his or her access code given by the employer
+        
     }
     
     /*

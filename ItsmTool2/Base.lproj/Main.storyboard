@@ -142,6 +142,7 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="vna-WV-SoN" id="9f0-zn-UHq"/>
+                        <outlet property="employerOrEmployeeField" destination="RkN-lE-Abv" id="Zpm-Ca-hr2"/>
                         <outlet property="password" destination="JBe-3Q-Ivt" id="88B-0f-ajW"/>
                         <outlet property="retypePassword" destination="nh4-Md-62c" id="XZf-Dl-gsX"/>
                         <segue destination="Veg-pP-wWy" kind="show" identifier="signupToHome" id="zcm-fh-jGb"/>
