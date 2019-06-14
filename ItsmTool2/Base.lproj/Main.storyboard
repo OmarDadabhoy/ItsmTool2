@@ -143,7 +143,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SEs-Sc-7k9">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Hu-QP-vhl">
                                 <rect key="frame" x="20" y="509" width="370" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -159,7 +159,7 @@
                         <outlet property="accessCodeorCompanyNameField" destination="gOO-Dm-psB" id="XrH-ho-HWa"/>
                         <outlet property="email" destination="vna-WV-SoN" id="9f0-zn-UHq"/>
                         <outlet property="employerOrEmployeeField" destination="RkN-lE-Abv" id="Zpm-Ca-hr2"/>
-                        <outlet property="fullNameField" destination="SEs-Sc-7k9" id="tiF-p1-TTk"/>
+                        <outlet property="fullNameField" destination="6Hu-QP-vhl" id="peJ-ew-XDF"/>
                         <outlet property="password" destination="JBe-3Q-Ivt" id="88B-0f-ajW"/>
                         <outlet property="retypePassword" destination="nh4-Md-62c" id="XZf-Dl-gsX"/>
                         <segue destination="Veg-pP-wWy" kind="show" identifier="signupToHome" id="zcm-fh-jGb"/>
