@@ -69,6 +69,8 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                                         let accessCodeRef = self.db.collection("Access Codes").document(accessCode)
                                         //add the current user as an employee
                                         accessCodeRef.updateData([self.email.text! : ["Employee", self.fullNameField.text!]])
+                                        //Add the user to the user database and the Auth should make sure this user is not previously registered
+                                        self.db.collection("users").document(self.email.text!).setData(["access code" : accessCode])
                                         //take them to home
                                         self.performSegue(withIdentifier: "signupToHome", sender: self)
                                         
@@ -129,6 +131,8 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         }
                         //Adds the access Code to the the document and sets it data
                         self.db.collection("Access Codes").document(accessCode).setData([self.email.text!: ["Admin", self.fullNameField.text!]])
+                        //add the user to the users 
+                        self.db.collection("users").document(self.email.text!).setData(["access code" : accessCode])
                         //let the user know that their stuff has been completed and give them their accessCode
                         let alertController = UIAlertController(title: "Your access code is " + accessCode, message: "Give those access codes to your employees or whoever you want to add to the server so they can join your server", preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "Ok", style: .cancel
