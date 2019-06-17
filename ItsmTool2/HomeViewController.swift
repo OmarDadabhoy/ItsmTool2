@@ -10,17 +10,34 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var groupPicker: UIPickerView!
+    var pickerData: [String] = []
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.groupPicker.delegate = self
         
     }
     
+    //This method fills the picker view with all the channels they are involved in
+    func fillPickerData(){
+        db.collection("users").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                }
+            }
+        }
+    }
+    
+    //This method sets up the logout button and what itll do when clicker
     @IBAction func logout(_ sender: Any) {
         do{
             try Auth.auth().signOut()
@@ -31,6 +48,21 @@ class HomeViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let initial = storyBoard.instantiateInitialViewController()
         UIApplication.shared.keyWindow?.rootViewController = initial
+    }
+    
+    //number of column components in the picker
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //number of rows in the picker
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //The current item
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
     }
     
     /*

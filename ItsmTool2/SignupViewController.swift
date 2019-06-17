@@ -50,46 +50,29 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             if(!self.isEmployer()){
                 //get the accessCode that the employee typed in
                 let accessCode = self.accessCodeorCompanyNameField.text!
-                var found: Bool = false
-                self.db.collection("Access Codes").getDocuments() { (QuerySnapshot, err) in
-                    //error message
-                    if let err = err{
-                        print("Error getting documents: \(err)")
-                        //loop through the documents and check if it exists which set exists to true or false based of that
-                    } else {
-                        //loop through the documents
-                        for document in QuerySnapshot!.documents {
-                            //if one exists make sure we keep set exists to true
-                            if(document.documentID == accessCode){
-                                found = true
-                                //create a user
-                                Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!){ (user, error) in
-                                    if error == nil{
-                                        //create a reference to the Access Codes collection and the accessCode within
-                                        let accessCodeRef = self.db.collection("Access Codes").document(accessCode)
-                                        //add the current user as an employee
-                                        accessCodeRef.updateData([self.email.text! : ["Employee", self.fullNameField.text!]])
-                                        //Add the user to the user database and the Auth should make sure this user is not previously registered
-                                        self.db.collection("users").document(self.email.text!).setData(["access code" : accessCode])
-                                        //take them to home
-                                        self.performSegue(withIdentifier: "signupToHome", sender: self)
-                                        
-                                    } else {
-                                        //present error statements when failing to create user
-                                        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                                        
-                                        alertController.addAction(defaultAction)
-                                        self.present(alertController, animated: true, completion: nil)
-                                    }
-                                }
+                let docRef = self.db.collection("Access Codes").document(accessCode)
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!){ (user, error) in
+                            if error == nil{
+                                //add the current user as an employee
+                                self.db.collection("Access Codes").document(accessCode).updateData([self.email.text!: ["Employee", self.fullNameField.text!]])
+                                //Add the user to the user database and the Auth should make sure this user is not previously registered
+                                self.db.collection("users").document(self.email.text!).setData(["access code" : accessCode])
+                                //take them to home
+                                self.performSegue(withIdentifier: "signupToHome", sender: self)
+                                
+                            } else {
+                                //present error statements when failing to create user
+                                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                
+                                alertController.addAction(defaultAction)
+                                self.present(alertController, animated: true, completion: nil)
                             }
                         }
-                    }
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
-                    //if the accessCode is registered in the database then the user is good else let them know it doesnt
-                    if(!found){
+                    } else {
+                        print("Document does not exist")
                         //alert the user that there is an error in their access code and it does not exist in the database
                         let alertController = UIAlertController(title: "Error", message: "The access code is not registered with us please type a valid access code", preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -97,39 +80,24 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         self.present(alertController, animated: true, completion: nil)
                     }
                 }
-                
                 //enter this if the person is an employer
             } else {
                 Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
                     if error == nil {
-                        //randomly generate an accessCode for them
-                        var accessCode = self.randomString(length: 6)
-                        var alreadyThere: Bool = true
-                        //as long as the accessCode is in the database keep generating new ones
-                        while(alreadyThere) {
-                            let docRef = self.db.collection("Access Codes").document(accessCode)
-                            docRef.getDocument { (document, error) in
-                                if let document = document, document.exists {
-                                    print("exists")
-                                    accessCode = self.randomString(length: 6)
-                                } else {
-                                    print("Document does not exist")
-                                    alreadyThere = false
-                                }
-                            }
-                        }
-                        //Adds the access Code to the the document and sets it data
-                        self.db.collection("Access Codes").document(accessCode).setData([self.email.text!: ["Admin", self.fullNameField.text!]])
-                        //add the user to the users 
-                        self.db.collection("users").document(self.email.text!).setData(["access code" : accessCode])
-                        //let the user know that their stuff has been completed and give them their accessCode
-                        let alertController = UIAlertController(title: "Your access code is " + accessCode, message: "Give those access codes to your employees or whoever you want to add to the server so they can join your server", preferredStyle: .alert)
-                        let defaultAction = UIAlertAction(title: "Ok", style: .cancel
+                        self.accessCodeExists(){ (accessCode) in
+                            //Adds the access Code to the the document and sets it data
+                            self.db.collection("Access Codes").document(accessCode).setData([self.email.text!: ["Admin", self.fullNameField.text!]])
+                            //add the user to the users
+                            self.db.collection("users").document(self.email.text!).setData(["access code" : accessCode])
+                            //let the user know that their stuff has been completed and give them their accessCode
+                            let alertController = UIAlertController(title: "Your access code is " + accessCode, message: "Give those access codes to your employees or whoever you want to add to the server so they can join your server", preferredStyle: .alert)
+                            let defaultAction = UIAlertAction(title: "Ok", style: .cancel
                                 , handler: nil)
-                        alertController.addAction(defaultAction)
-                        //perform the segue to the home screen
-                        self.performSegue(withIdentifier: "signupToHome", sender: self)
-                        self.present(alertController, animated: true, completion: nil)
+                            alertController.addAction(defaultAction)
+                            //perform the segue to the home screen
+                            self.performSegue(withIdentifier: "signupToHome", sender: self)
+                            self.present(alertController, animated: true, completion: nil)
+                        }
                     } else{
                         let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -142,46 +110,21 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    private func accessCodeExists(accessCode: String, completionHandler: @escaping (Bool) -> ()) {
-        var exists: Bool = false
+    //Generates an access code and Checks to see if the Access Code is in the database already
+    private func accessCodeExists(completionHandler: @escaping (String) -> ()) {
+        let accessCode = self.randomString(length: 6)
         let docRef = self.db.collection("Access Codes").document(accessCode)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                print("exists")
-                completionHandler(exists)
+                self.accessCodeExists() { (newAccessCode) in
+                    completionHandler(newAccessCode)
+                }
             } else {
                 print("Document does not exist")
-                exists = false
-                completionHandler(exists)
+                completionHandler(accessCode)
             }
         }
     }
-    
-    
-    
-//    //Checks to see if the access code has already been put into the database
-//    private func isAccessCodeAlreadyInDatabase(accessCode: String) -> Bool {
-//        //create the exists variable and set it to false
-//        var exists: Bool = false
-//        //go through the access codes collection and get all the documents
-//        self.db.collection("Access Codes").getDocuments() { (QuerySnapshot, err) in
-//            //error message
-//            if let err = err{
-//                print("Error getting documents: \(err)")
-//                //loop through the documents and check if it exists which set exists to true or false based of that
-//            } else {
-//                //loop through the documents
-//                for document in QuerySnapshot!.documents {
-//                    //if one exists make sure we keep set exists to true
-//                    if(document.documentID == accessCode){
-//                        exists = true
-//                    }
-//                }
-//            }
-//        }
-//        //return exists
-//        return exists
-//    }
     
     //This function determines if the signer up is an employer or not
     private func isEmployer() -> Bool {
