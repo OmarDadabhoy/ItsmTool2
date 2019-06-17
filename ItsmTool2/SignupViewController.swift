@@ -107,25 +107,14 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         var alreadyThere: Bool = true
                         //as long as the accessCode is in the database keep generating new ones
                         while(alreadyThere) {
-                            self.db.collection("Access Codes").getDocuments() { (QuerySnapshot, err) in
-                                //error message
-                                if let err = err{
-                                    print("Error getting documents: \(err)")
-                                    //loop through the documents and check if it exists which set exists to true or false based of that
+                            let docRef = self.db.collection("Access Codes").document(accessCode)
+                            docRef.getDocument { (document, error) in
+                                if let document = document, document.exists {
+                                    print("exists")
+                                    accessCode = self.randomString(length: 6)
                                 } else {
-                                    var exists : Bool = false
-                                    //loop through the documents
-                                    for document in QuerySnapshot!.documents {
-                                        //if one exists make sure we keep set exists to true
-                                        if(document.documentID == accessCode){
-                                            exists = true
-                                        }
-                                    }
-                                    if(exists){
-                                        accessCode = self.randomString(length: 6)
-                                    } else {
-                                        alreadyThere = false
-                                    }
+                                    print("Document does not exist")
+                                    alreadyThere = false
                                 }
                             }
                         }
@@ -153,29 +142,46 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    //Checks to see if the access code has already been put into the database
-    private func isAccessCodeAlreadyInDatabase(accessCode: String) -> Bool {
-        //create the exists variable and set it to false
+    private func accessCodeExists(accessCode: String, completionHandler: @escaping (Bool) -> ()) {
         var exists: Bool = false
-        //go through the access codes collection and get all the documents
-        self.db.collection("Access Codes").getDocuments() { (QuerySnapshot, err) in
-            //error message
-            if let err = err{
-                print("Error getting documents: \(err)")
-                //loop through the documents and check if it exists which set exists to true or false based of that
+        let docRef = self.db.collection("Access Codes").document(accessCode)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                print("exists")
+                completionHandler(exists)
             } else {
-                //loop through the documents
-                for document in QuerySnapshot!.documents {
-                    //if one exists make sure we keep set exists to true
-                    if(document.documentID == accessCode){
-                        exists = true
-                    }
-                }
+                print("Document does not exist")
+                exists = false
+                completionHandler(exists)
             }
         }
-        //return exists
-        return exists
     }
+    
+    
+    
+//    //Checks to see if the access code has already been put into the database
+//    private func isAccessCodeAlreadyInDatabase(accessCode: String) -> Bool {
+//        //create the exists variable and set it to false
+//        var exists: Bool = false
+//        //go through the access codes collection and get all the documents
+//        self.db.collection("Access Codes").getDocuments() { (QuerySnapshot, err) in
+//            //error message
+//            if let err = err{
+//                print("Error getting documents: \(err)")
+//                //loop through the documents and check if it exists which set exists to true or false based of that
+//            } else {
+//                //loop through the documents
+//                for document in QuerySnapshot!.documents {
+//                    //if one exists make sure we keep set exists to true
+//                    if(document.documentID == accessCode){
+//                        exists = true
+//                    }
+//                }
+//            }
+//        }
+//        //return exists
+//        return exists
+//    }
     
     //This function determines if the signer up is an employer or not
     private func isEmployer() -> Bool {
