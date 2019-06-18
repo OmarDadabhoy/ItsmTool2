@@ -180,6 +180,14 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.accessCodeorCompanyNameField.isHidden = false
     }
     
+    //sends the email to the home view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is HomeViewController {
+            let vc = segue.destination as? HomeViewController
+            vc?.email = self.email.text!
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

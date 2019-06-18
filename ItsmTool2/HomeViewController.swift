@@ -15,26 +15,19 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var groupPicker: UIPickerView!
     var pickerData: [String] = []
     let db = Firestore.firestore()
+    var email: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.groupPicker.delegate = self
-        
+        print(email)
     }
     
     //This method fills the picker view with all the channels they are involved in
     func fillPickerData(){
-        db.collection("users").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    
-                }
-            }
-        }
+        
     }
     
     //This method sets up the logout button and what itll do when clicker
