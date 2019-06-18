@@ -25,13 +25,5 @@ class ViewController: UIViewController {
             self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
         }
     }
-    
-    //send the email value to the home view controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is HomeViewController {
-            let vc = segue.destination as? HomeViewController
-            vc?.email = self.email
-        }
-    }
 }
 

@@ -22,6 +22,13 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
         // Do any additional setup after loading the view.
         self.groupPicker.delegate = self
+        if(email == ""){
+            if let x = UserDefaults.standard.object(forKey: "userEmail") as? String {
+                email = x
+            }
+        } else {
+            UserDefaults.standard.set(email, forKey: "userEmail")
+        }
         print(email)
     }
     

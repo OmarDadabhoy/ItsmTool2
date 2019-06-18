@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    var viewController: ViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,8 @@ class LoginViewController: UIViewController {
             vc?.email = self.email.text!
         }
     }
+    
+    
     /*
     // MARK: - Navigation
 
