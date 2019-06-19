@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    var fullName: String = ""
     var pickerData: [String] = []
     let db = Firestore.firestore()
     var email: String = ""
@@ -35,15 +36,21 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.fillPickerData()
     }
     
-    //This method fills the picker view with all the channels they are involved in
+    //This method fills the picker view with all the channels they are involved in and sets the name
     func fillPickerData(){
         let docRef = db.collection("users").document(email)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let documentData = document.data()
                 for doc in documentData!{
-                    print("entering for loop " + (doc.value as! String))
-                    self.pickerData.append((doc.value as! String))
+                    //add all the accessCodes to the picker
+                    if(doc.key != "Full Name"){
+                        print("entering for loop " + (doc.key))
+                        self.pickerData.append((doc.key))
+                        //set the name here
+                    } else {
+                        self.fullName = doc.value as! String
+                    }
                 }
                 print(self.pickerData)
                 if(self.pickerData.count >= 1){
@@ -87,6 +94,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     //This method is connected to the enter channel button which will allow the user to enter
     @IBAction func enterChannel(_ sender: Any) {
+        
         self.performSegue(withIdentifier: "proceedToChannel", sender: self)
     }
     
@@ -98,12 +106,35 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
         let saveAction = UIAlertAction(title: "Join", style: .default, handler: { alert -> Void in
             let textField = alertController.textFields![0] as UITextField
-            
+            let docRef = self.db.collection("Access Codes").document(textField.text!)
+            docRef.getDocument(){ (document, error) in 
+                if let document = document, document.exists {
+                    self.db.collection("Access Codes").document(textField.text!).updateData([self.email: ["Employee", self.fullName]])
+                    //Add the user to the user database and the Auth should make sure this user is not previously registered
+                    self.db.collection("users").document(self.email).setData([textField.text! : "access code"])
+                    self.pickerData.append(textField.text!)
+                } else {
+                    print("Document does not exist")
+                    //alert the user that there is an error in their access code and it does not exist in the database
+                    let alertController = UIAlertController(title: "Error", message: "The access code is not registered with us please type a valid access code", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    //send the access code value to the home view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ChannelViewController {
+            let vc = segue.destination as? ChannelViewController
+            vc?.accessCode = self.groupField.text!
+        }
     }
     
     /*

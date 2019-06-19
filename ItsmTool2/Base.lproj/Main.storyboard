@@ -115,7 +115,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kd-H9-5qD">
-                                <rect key="frame" x="97" y="735" width="220" height="52"/>
+                                <rect key="frame" x="97" y="729" width="220" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Create Account"/>
                                 <connections>
@@ -141,14 +141,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gOO-Dm-psB">
-                                <rect key="frame" x="20" y="627" width="374" height="30"/>
+                                <rect key="frame" x="20" y="621" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Access Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGp-gE-hwy">
-                                <rect key="frame" x="20" y="583" width="308" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="20" y="583" width="257.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -263,14 +263,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCf-AI-0Qo">
-                                <rect key="frame" x="9" y="118" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Join new Channel"/>
-                                <connections>
-                                    <action selector="joinNewChannel:" destination="Veg-pP-wWy" eventType="touchUpInside" id="7g5-B9-kbD"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick which channel you want to join" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXe-L0-iez">
                                 <rect key="frame" x="20" y="235" width="271" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -286,6 +278,14 @@
                                     <action selector="enterChannel:" destination="Veg-pP-wWy" eventType="touchUpInside" id="DK5-xQ-eck"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCf-AI-0Qo">
+                                <rect key="frame" x="20" y="118" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Join new Channel"/>
+                                <connections>
+                                    <action selector="joinNewChannel:" destination="Veg-pP-wWy" eventType="touchUpInside" id="7g5-B9-kbD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="FKY-Pf-R1K"/>
@@ -299,10 +299,10 @@
             </objects>
             <point key="canvasLocation" x="3602.898550724638" y="-575.22321428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Channel View Controller-->
         <scene sceneID="Gna-Du-Kss">
             <objects>
-                <viewController id="G30-CZ-cXq" sceneMemberID="viewController">
+                <viewController id="G30-CZ-cXq" customClass="ChannelViewController" customModule="ItsmTool2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vUq-Q8-kxE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,6 +418,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OIG-QT-7pX"/>
+        <segue reference="zcm-fh-jGb"/>
     </inferredMetricsTieBreakers>
 </document>

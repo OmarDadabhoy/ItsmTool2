@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */; };
 		22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */; };
 		22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B79222AB2BC0000EE7AB /* ViewController.swift */; };
 		22F2B79622AB2BC0000EE7AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B79422AB2BC0000EE7AB /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		00AE1D5D9FF4ECDBFB33D794 /* Pods-ItsmTool2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2Tests.debug.xcconfig"; path = "Target Support Files/Pods-ItsmTool2Tests/Pods-ItsmTool2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1470E74F41D69ED600EB9DDA /* Pods_ItsmTool2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsmTool2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21910222386D8F4AFC869B59 /* Pods_ItsmTool2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsmTool2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		22F2B78D22AB2BC0000EE7AB /* ItsmTool2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItsmTool2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22F2B79222AB2BC0000EE7AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */,
 				22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */,
 				22F2B7C222AB302B000EE7AB /* HomeViewController.swift */,
+				22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -176,7 +179,6 @@
 				5173B7C1ED68DAC9D5F749DA /* Pods-ItsmTool2UITests.debug.xcconfig */,
 				2733B8482659A0F95A81C3AA /* Pods-ItsmTool2UITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -408,6 +410,7 @@
 				22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */,
 				22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */,
 				22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */,
+				22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */,
 				22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
