@@ -12,16 +12,18 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var groupPicker: UIPickerView!
     var pickerData: [String] = []
     let db = Firestore.firestore()
     var email: String = ""
+    var groupPicker2 = UIPickerView()
+    @IBOutlet weak var groupField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.groupPicker.delegate = self
+        self.groupPicker2.delegate = self
+        self.groupField.inputView = groupPicker2
         if(email == ""){
             if let x = UserDefaults.standard.object(forKey: "userEmail") as? String {
                 email = x
@@ -30,11 +32,29 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             UserDefaults.standard.set(email, forKey: "userEmail")
         }
         print(email)
+        self.fillPickerData()
     }
     
     //This method fills the picker view with all the channels they are involved in
     func fillPickerData(){
-        
+        let docRef = db.collection("users").document(email)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let documentData = document.data()
+                for doc in documentData!{
+                    print("entering for loop " + (doc.value as! String))
+                    self.pickerData.append((doc.value as! String))
+                }
+                print(self.pickerData)
+                if(self.pickerData.count >= 1){
+                    self.groupField.text = self.pickerData[0]
+                } else {
+                    self.groupField.text = "You are not currently in any channels please join a channel"
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     //This method sets up the logout button and what itll do when clicker
@@ -63,6 +83,27 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     //The current item
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
+    }
+    
+    //This method is connected to the enter channel button which will allow the user to enter
+    @IBAction func enterChannel(_ sender: Any) {
+        self.performSegue(withIdentifier: "proceedToChannel", sender: self)
+    }
+    
+    //This method allows the user to add another access code and enter a new channel
+    @IBAction func joinNewChannel(_ sender: Any) {
+        let alertController = UIAlertController(title: "Enter Access Code", message: nil, preferredStyle: .alert)
+        alertController.addTextField() { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter the access code of the channel you want to join"
+        }
+        let saveAction = UIAlertAction(title: "Join", style: .default, handler: { alert -> Void in
+            let textField = alertController.textFields![0] as UITextField
+            
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     /*
