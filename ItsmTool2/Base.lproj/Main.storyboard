@@ -332,6 +332,7 @@
                         <viewLayoutGuide key="safeArea" id="lOs-av-GPT"/>
                     </view>
                     <connections>
+                        <outlet property="menu" destination="F9r-BH-sBn" id="V86-Cd-wAL"/>
                         <outlet property="tableViewLeadingConst" destination="59L-Dk-BIg" id="6n7-4j-RXX"/>
                     </connections>
                 </viewController>
