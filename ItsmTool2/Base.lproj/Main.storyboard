@@ -306,13 +306,38 @@
                     <view key="view" contentMode="scaleToFill" id="vUq-Q8-kxE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db2-A3-e8V">
+                                <rect key="frame" x="20" y="98" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showMenu:" destination="G30-CZ-cXq" eventType="touchUpInside" id="x6F-5I-nzF"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-BH-sBn">
+                                <rect key="frame" x="-240" y="126" width="240" height="770"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="tgS-yZ-BvF"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F9r-BH-sBn" firstAttribute="leading" secondItem="lOs-av-GPT" secondAttribute="leading" constant="-240" id="59L-Dk-BIg"/>
+                            <constraint firstItem="F9r-BH-sBn" firstAttribute="top" secondItem="lOs-av-GPT" secondAttribute="top" constant="38" id="6ZU-QJ-6w8"/>
+                            <constraint firstAttribute="bottom" secondItem="F9r-BH-sBn" secondAttribute="bottom" id="l7A-OD-hsU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lOs-av-GPT"/>
                     </view>
+                    <connections>
+                        <outlet property="tableViewLeadingConst" destination="59L-Dk-BIg" id="6n7-4j-RXX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPl-9n-itv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4729" y="-575"/>
+            <point key="canvasLocation" x="4728.985507246377" y="-575.22321428571422"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="sqe-fQ-urX">
