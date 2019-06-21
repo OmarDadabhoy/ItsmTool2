@@ -8,12 +8,9 @@
 
 import UIKit
 
-class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChannelViewController: UIViewController {
 
     var accessCode: String = ""
-    @IBOutlet weak var tableViewLeadingConst: NSLayoutConstraint!
-    var tableViewIsHidden: Bool = true
-    @IBOutlet weak var menu: UITableView!
     let tablePicker: [String] = []
     
     override func viewDidLoad() {
@@ -22,51 +19,32 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func showMenu(_ sender: Any) {
-        if(tableViewIsHidden){
-            tableViewLeadingConst.constant = 0
-            tableViewIsHidden = false
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
-        } else {
-            tableViewLeadingConst.constant = -240
-            tableViewIsHidden = true
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
-        }
-        
-    }
     
     //Sees where the user touched so if they touch outside the menu itll dissapear 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        guard let location = touch?.location(in: self.view) else { return }
-        if !menu.frame.contains(location) {
-            print("Tapped outside the view")
-            tableViewLeadingConst.constant = -240
-            tableViewIsHidden = true
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
-        }else {
-            print("Tapped inside the view")
-        }
+//        let touch = touches.first
+//        guard let location = touch?.location(in: self.view) else { return }
+//        if !menu.frame.contains(location) {
+//            print("Tapped outside the view")
+//            UIView.animate(withDuration: 0.3, animations: {
+//                self.view.layoutIfNeeded()
+//            })
+//        }else {
+//            print("Tapped inside the view")
+//        }
     }
     
-    //number of rows in the table view
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tablePicker.count
-    }
-    
-    //sets up the cells of the table
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = tablePicker[indexPath.row]
-        return cell
-    }
+//    //number of rows in the table view
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return tablePicker.count
+//    }
+//
+//    //sets up the cells of the table
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
+//        cell.textLabel?.text = tablePicker[indexPath.row]
+//        return cell
+//    }
     
 
     /*
