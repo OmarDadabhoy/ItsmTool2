@@ -48,7 +48,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5WY-X0-98c"/>
                     <connections>
-                        <segue destination="Veg-pP-wWy" kind="show" identifier="alreadyLoggedIn" id="OIG-QT-7pX"/>
+                        <segue destination="G7F-Hi-7qP" kind="show" identifier="alreadyLoggedIn" id="YQf-uV-g9M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -233,7 +233,7 @@
                         <outlet property="fullNameField" destination="6Hu-QP-vhl" id="peJ-ew-XDF"/>
                         <outlet property="password" destination="JBe-3Q-Ivt" id="88B-0f-ajW"/>
                         <outlet property="retypePassword" destination="nh4-Md-62c" id="XZf-Dl-gsX"/>
-                        <segue destination="Veg-pP-wWy" kind="show" identifier="signupToHome" id="zcm-fh-jGb"/>
+                        <segue destination="G7F-Hi-7qP" kind="show" identifier="signupToHome" id="E6B-FM-iRX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfF-hy-l4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,6 +243,7 @@
         <!--Home View Controller-->
         <scene sceneID="Luy-h2-heD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9KN-XV-KmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Veg-pP-wWy" customClass="HomeViewController" customModule="ItsmTool2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ml5-nh-gW4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -290,14 +291,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="FKY-Pf-R1K"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Qej-g6-wJa"/>
                     <connections>
                         <outlet property="groupField" destination="Kk8-Gi-iUK" id="RDg-NW-3vD"/>
                         <segue destination="G30-CZ-cXq" kind="show" identifier="proceedToChannel" id="PQN-UQ-029"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9KN-XV-KmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3551" y="-559"/>
+            <point key="canvasLocation" x="2023.1884057971015" y="606.69642857142856"/>
         </scene>
         <!--Channel View Controller-->
         <scene sceneID="Gna-Du-Kss">
@@ -338,7 +339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPl-9n-itv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4728.985507246377" y="-575.22321428571422"/>
+            <point key="canvasLocation" x="3157.971014492754" y="606.69642857142856"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="sqe-fQ-urX">
@@ -417,7 +418,7 @@
                     <connections>
                         <outlet property="email" destination="vOg-ld-KSA" id="tCj-cP-btY"/>
                         <outlet property="password" destination="Mop-BD-dQk" id="Vl5-ho-4Vk"/>
-                        <segue destination="Veg-pP-wWy" kind="show" identifier="loginToHome" id="RNF-hu-X77"/>
+                        <segue destination="G7F-Hi-7qP" kind="show" identifier="loginToHome" id="vxX-oI-zRg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghd-Oz-Adi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -442,11 +443,29 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-575.22321428571422"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ndt-w7-ErL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G7F-Hi-7qP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2At-PC-d40">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Veg-pP-wWy" kind="relationship" relationship="rootViewController" id="mHo-hs-Teh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOL-Kn-V5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113.0434782608697" y="606.69642857142856"/>
+        </scene>
     </scenes>
     <resources>
         <image name="menu.png" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zcm-fh-jGb"/>
+        <segue reference="vxX-oI-zRg"/>
     </inferredMetricsTieBreakers>
 </document>
