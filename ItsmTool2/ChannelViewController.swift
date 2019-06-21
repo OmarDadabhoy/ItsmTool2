@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ChannelViewController: UIViewController {
+class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var accessCode: String = ""
     @IBOutlet weak var tableViewLeadingConst: NSLayoutConstraint!
     var tableViewIsHidden: Bool = true
     @IBOutlet weak var menu: UITableView!
+    let tablePicker: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,17 @@ class ChannelViewController: UIViewController {
         }
     }
     
+    //number of rows in the table view
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tablePicker.count
+    }
+    
+    //sets up the cells of the table
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
+        cell.textLabel?.text = tablePicker[indexPath.row]
+        return cell
+    }
     
 
     /*

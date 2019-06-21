@@ -21,6 +21,7 @@
 		22F2B7C522AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
 		22F2B7C622AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
 		22F2B7C722AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
+		22F2F53A22BB240E00B17E41 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F2F53922BB240E00B17E41 /* menu.png */; };
 		89681B2948C8EFD4B23DBB81 /* Pods_ItsmTool2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B25BFC6717B95A7CA52FC70 /* Pods_ItsmTool2.framework */; };
 		CB8103A73E98ADC3FC764A5E /* Pods_ItsmTool2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1470E74F41D69ED600EB9DDA /* Pods_ItsmTool2UITests.framework */; };
 		F35D350DD49506BA1DB30393 /* Pods_ItsmTool2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21910222386D8F4AFC869B59 /* Pods_ItsmTool2Tests.framework */; };
@@ -65,6 +66,7 @@
 		22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		22F2B7C222AB302B000EE7AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22F2F53922BB240E00B17E41 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = ../../../menu.png; sourceTree = "<group>"; };
 		2733B8482659A0F95A81C3AA /* Pods-ItsmTool2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2UITests.release.xcconfig"; path = "Target Support Files/Pods-ItsmTool2UITests/Pods-ItsmTool2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		37F02C08E66CD7A2BED0DEC0 /* Pods-ItsmTool2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2Tests.release.xcconfig"; path = "Target Support Files/Pods-ItsmTool2Tests/Pods-ItsmTool2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5173B7C1ED68DAC9D5F749DA /* Pods-ItsmTool2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2UITests.debug.xcconfig"; path = "Target Support Files/Pods-ItsmTool2UITests/Pods-ItsmTool2UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		22F2B78F22AB2BC0000EE7AB /* ItsmTool2 */ = {
 			isa = PBXGroup;
 			children = (
+				22F2F53822BB23E000B17E41 /* New Group */,
 				22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */,
 				22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */,
 				22F2B79222AB2BC0000EE7AB /* ViewController.swift */,
@@ -167,6 +170,14 @@
 				22F2B7B222AB2BC1000EE7AB /* Info.plist */,
 			);
 			path = ItsmTool2UITests;
+			sourceTree = "<group>";
+		};
+		22F2F53822BB23E000B17E41 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				22F2F53922BB240E00B17E41 /* menu.png */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		65CA83670A6BED825E162F54 /* Pods */ = {
@@ -291,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F2B79B22AB2BC1000EE7AB /* LaunchScreen.storyboard in Resources */,
+				22F2F53A22BB240E00B17E41 /* menu.png in Resources */,
 				22F2B7C522AB4413000EE7AB /* GoogleService-Info.plist in Resources */,
 				22F2B79822AB2BC1000EE7AB /* Assets.xcassets in Resources */,
 				22F2B79622AB2BC0000EE7AB /* Main.storyboard in Resources */,

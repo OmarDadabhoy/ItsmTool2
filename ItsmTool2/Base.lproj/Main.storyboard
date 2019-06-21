@@ -297,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9KN-XV-KmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3602.898550724638" y="-575.22321428571422"/>
+            <point key="canvasLocation" x="3551" y="-559"/>
         </scene>
         <!--Channel View Controller-->
         <scene sceneID="Gna-Du-Kss">
@@ -307,14 +307,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db2-A3-e8V">
-                                <rect key="frame" x="20" y="98" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="showMenu:" destination="G30-CZ-cXq" eventType="touchUpInside" id="x6F-5I-nzF"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-BH-sBn">
                                 <rect key="frame" x="-240" y="126" width="240" height="770"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -322,6 +314,14 @@
                                     <constraint firstAttribute="width" constant="240" id="tgS-yZ-BvF"/>
                                 </constraints>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db2-A3-e8V">
+                                <rect key="frame" x="20" y="107" width="41" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="menu.png"/>
+                                <connections>
+                                    <action selector="showMenu:" destination="G30-CZ-cXq" eventType="touchUpInside" id="x6F-5I-nzF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -443,6 +443,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="-575.22321428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu.png" width="1200" height="1200"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zcm-fh-jGb"/>
     </inferredMetricsTieBreakers>
