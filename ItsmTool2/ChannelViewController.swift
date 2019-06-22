@@ -11,12 +11,20 @@ import UIKit
 class ChannelViewController: UIViewController {
 
     var accessCode: String = ""
-    let tablePicker: [String] = []
+    var menuButton: UIBarButtonItem = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if self.revealViewController() != nil {
+            print("not nil")
+            menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            //set the leftBarButtonItem to the MenuButton
+            self.revealViewController().navigationItem.leftBarButtonItem = menuButton
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     
@@ -33,18 +41,6 @@ class ChannelViewController: UIViewController {
 //            print("Tapped inside the view")
 //        }
     }
-    
-//    //number of rows in the table view
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return tablePicker.count
-//    }
-//
-//    //sets up the cells of the table
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-//        cell.textLabel?.text = tablePicker[indexPath.row]
-//        return cell
-//    }
     
 
     /*

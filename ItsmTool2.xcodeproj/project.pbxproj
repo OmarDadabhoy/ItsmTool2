@@ -21,7 +21,7 @@
 		22F2B7C522AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
 		22F2B7C622AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
 		22F2B7C722AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
-		22F2F53A22BB240E00B17E41 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F2F53922BB240E00B17E41 /* menu.png */; };
+		22FC0E4E22BDA4AB00151576 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0E4C22BDA4AB00151576 /* SWRevealViewController.m */; };
 		89681B2948C8EFD4B23DBB81 /* Pods_ItsmTool2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B25BFC6717B95A7CA52FC70 /* Pods_ItsmTool2.framework */; };
 		CB8103A73E98ADC3FC764A5E /* Pods_ItsmTool2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1470E74F41D69ED600EB9DDA /* Pods_ItsmTool2UITests.framework */; };
 		F35D350DD49506BA1DB30393 /* Pods_ItsmTool2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21910222386D8F4AFC869B59 /* Pods_ItsmTool2Tests.framework */; };
@@ -66,7 +66,9 @@
 		22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		22F2B7C222AB302B000EE7AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		22F2F53922BB240E00B17E41 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = ../../../menu.png; sourceTree = "<group>"; };
+		22FC0E4B22BDA4AA00151576 /* ItsmTool2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItsmTool2-Bridging-Header.h"; sourceTree = "<group>"; };
+		22FC0E4C22BDA4AB00151576 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
+		22FC0E4D22BDA4AB00151576 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
 		2733B8482659A0F95A81C3AA /* Pods-ItsmTool2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2UITests.release.xcconfig"; path = "Target Support Files/Pods-ItsmTool2UITests/Pods-ItsmTool2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		37F02C08E66CD7A2BED0DEC0 /* Pods-ItsmTool2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2Tests.release.xcconfig"; path = "Target Support Files/Pods-ItsmTool2Tests/Pods-ItsmTool2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5173B7C1ED68DAC9D5F749DA /* Pods-ItsmTool2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2UITests.debug.xcconfig"; path = "Target Support Files/Pods-ItsmTool2UITests/Pods-ItsmTool2UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 		22F2B78F22AB2BC0000EE7AB /* ItsmTool2 */ = {
 			isa = PBXGroup;
 			children = (
-				22F2F53822BB23E000B17E41 /* New Group */,
+				22FC0E4A22BDA42500151576 /* SWRevealViewController */,
 				22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */,
 				22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */,
 				22F2B79222AB2BC0000EE7AB /* ViewController.swift */,
@@ -172,12 +174,14 @@
 			path = ItsmTool2UITests;
 			sourceTree = "<group>";
 		};
-		22F2F53822BB23E000B17E41 /* New Group */ = {
+		22FC0E4A22BDA42500151576 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				22F2F53922BB240E00B17E41 /* menu.png */,
+				22FC0E4D22BDA4AB00151576 /* SWRevealViewController.h */,
+				22FC0E4C22BDA4AB00151576 /* SWRevealViewController.m */,
+				22FC0E4B22BDA4AA00151576 /* ItsmTool2-Bridging-Header.h */,
 			);
-			path = "New Group";
+			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		65CA83670A6BED825E162F54 /* Pods */ = {
@@ -265,6 +269,7 @@
 				TargetAttributes = {
 					22F2B78C22AB2BC0000EE7AB = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					22F2B7A022AB2BC1000EE7AB = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -302,7 +307,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F2B79B22AB2BC1000EE7AB /* LaunchScreen.storyboard in Resources */,
-				22F2F53A22BB240E00B17E41 /* menu.png in Resources */,
 				22F2B7C522AB4413000EE7AB /* GoogleService-Info.plist in Resources */,
 				22F2B79822AB2BC1000EE7AB /* Assets.xcassets in Resources */,
 				22F2B79622AB2BC0000EE7AB /* Main.storyboard in Resources */,
@@ -418,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FC0E4E22BDA4AB00151576 /* SWRevealViewController.m in Sources */,
 				22F2B7C322AB302B000EE7AB /* HomeViewController.swift in Sources */,
 				22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */,
 				22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */,
@@ -599,6 +604,7 @@
 			baseConfigurationReference = EBB2D60699AABEB49AAC0A2D /* Pods-ItsmTool2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ItsmTool2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -607,6 +613,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = OmarDadabhoy.ItsmTool2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ItsmTool2/SWRevealViewController/ItsmTool2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -617,6 +625,7 @@
 			baseConfigurationReference = 622BE71A8A6E87DCE82A55D5 /* Pods-ItsmTool2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ItsmTool2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -625,6 +634,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = OmarDadabhoy.ItsmTool2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ItsmTool2/SWRevealViewController/ItsmTool2-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
