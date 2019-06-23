@@ -21,6 +21,7 @@ class ChannelViewController: UIViewController {
         if self.revealViewController() != nil {
             print("not nil")
             menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+//            menuButton = UIBarButtonItem.init(image: , style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
             //set the leftBarButtonItem to the MenuButton
             self.revealViewController().navigationItem.leftBarButtonItem = menuButton
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
