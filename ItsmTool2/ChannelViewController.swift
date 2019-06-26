@@ -43,7 +43,12 @@ class ChannelViewController: UIViewController {
 //        }
     }
     
-
+    @IBAction func goBackToHome(_ sender: Any) {
+        if let navController = self.navigationController{
+            navController.popViewController(animated: true)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

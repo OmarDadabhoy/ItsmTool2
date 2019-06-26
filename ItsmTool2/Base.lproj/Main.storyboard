@@ -317,6 +317,9 @@
                                 <rect key="frame" x="224" y="130" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Return to Channel Picker"/>
+                                <connections>
+                                    <action selector="goBackToHome:" destination="m2p-Is-8Yf" eventType="touchUpInside" id="g7X-XZ-W0G"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -326,7 +329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7u-6y-6hh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3463.7681159420295" y="1366.7410714285713"/>
+            <point key="canvasLocation" x="3464" y="1422"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="sqe-fQ-urX">
@@ -448,7 +451,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpf-SI-NzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676.8115942028987" y="1366.7410714285713"/>
+            <point key="canvasLocation" x="2248" y="1422"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="bIO-lX-8hl">
@@ -488,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXe-z4-L0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1653.6231884057972" y="2119.4196428571427"/>
+            <point key="canvasLocation" x="2249" y="2162"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
