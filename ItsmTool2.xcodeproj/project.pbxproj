@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		226A6EA522C2DEF900FA9255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 226A6EA422C2DEF900FA9255 /* GoogleService-Info.plist */; };
 		226A6EA722C2E73F00FA9255 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6EA622C2E73F00FA9255 /* HomeViewController.swift */; };
+		22ED0E6522C318C200ACAC2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ED0E6422C318C200ACAC2E /* Constants.swift */; };
 		22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */; };
 		22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */; };
 		22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B79222AB2BC0000EE7AB /* ViewController.swift */; };
@@ -21,7 +22,6 @@
 		22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */; };
 		22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3632E22C1C62B00BC17AD /* MenuViewController.swift */; };
 		22F657D022BED1E8005F3C5C /* men.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F657CF22BED1E8005F3C5C /* men.png */; };
-		22F7A20122C2A3C800ABB678 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7A20022C2A3C800ABB678 /* User.swift */; };
 		22FC0E4E22BDA4AB00151576 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0E4C22BDA4AB00151576 /* SWRevealViewController.m */; };
 		89681B2948C8EFD4B23DBB81 /* Pods_ItsmTool2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B25BFC6717B95A7CA52FC70 /* Pods_ItsmTool2.framework */; };
 		CB8103A73E98ADC3FC764A5E /* Pods_ItsmTool2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1470E74F41D69ED600EB9DDA /* Pods_ItsmTool2UITests.framework */; };
@@ -51,6 +51,7 @@
 		21910222386D8F4AFC869B59 /* Pods_ItsmTool2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsmTool2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		226A6EA422C2DEF900FA9255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		226A6EA622C2E73F00FA9255 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		22ED0E6422C318C200ACAC2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		22F2B78D22AB2BC0000EE7AB /* ItsmTool2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItsmTool2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		22F3632E22C1C62B00BC17AD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		22F657CF22BED1E8005F3C5C /* men.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = men.png; path = ../../../men.png; sourceTree = "<group>"; };
-		22F7A20022C2A3C800ABB678 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22FC0E4B22BDA4AA00151576 /* ItsmTool2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItsmTool2-Bridging-Header.h"; sourceTree = "<group>"; };
 		22FC0E4C22BDA4AB00151576 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
 		22FC0E4D22BDA4AB00151576 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 				22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */,
 				22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */,
 				22F3632E22C1C62B00BC17AD /* MenuViewController.swift */,
-				22F7A20022C2A3C800ABB678 /* User.swift */,
 				226A6EA622C2E73F00FA9255 /* HomeViewController.swift */,
+				22ED0E6422C318C200ACAC2E /* Constants.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -440,11 +440,11 @@
 				22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */,
 				22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */,
 				22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */,
-				22F7A20122C2A3C800ABB678 /* User.swift in Sources */,
 				226A6EA722C2E73F00FA9255 /* HomeViewController.swift in Sources */,
 				22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */,
 				22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */,
 				22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */,
+				22ED0E6522C318C200ACAC2E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

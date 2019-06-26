@@ -123,6 +123,10 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             vc?.accessCode = self.groupPickerField.text!
         }
     }
+    
+    @IBAction func proceedToChannel(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToChannel", sender: self)
+    }
     /*
     // MARK: - Navigation
 

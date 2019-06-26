@@ -266,6 +266,9 @@
                                 <rect key="frame" x="259" y="173" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Proceed to Channel"/>
+                                <connections>
+                                    <action selector="proceedToChannel:" destination="ahw-DM-ZFq" eventType="touchUpInside" id="EDB-WG-s4j"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -295,7 +298,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="groupPickerField" destination="Afu-Um-sXg" id="c4P-Gb-4hq"/>
-                        <segue destination="hDQ-Sr-oWz" kind="show" id="xD9-nU-Dhy"/>
+                        <segue destination="hDQ-Sr-oWz" kind="show" identifier="goToChannel" id="xD9-nU-Dhy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ez4-76-FUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -309,6 +312,13 @@
                     <view key="view" contentMode="scaleToFill" id="i1z-v3-FEV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYd-GJ-Wb5">
+                                <rect key="frame" x="224" y="130" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Return to Channel Picker"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sGk-9k-Rfx"/>
                     </view>
