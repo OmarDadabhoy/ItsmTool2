@@ -48,7 +48,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5WY-X0-98c"/>
                     <connections>
-                        <segue destination="G7F-Hi-7qP" kind="show" identifier="alreadyLoggedIn" id="YQf-uV-g9M"/>
+                        <segue destination="ahw-DM-ZFq" kind="show" identifier="alreadyLoggedIn" id="Heo-xi-SON"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -233,7 +233,7 @@
                         <outlet property="fullNameField" destination="6Hu-QP-vhl" id="peJ-ew-XDF"/>
                         <outlet property="password" destination="JBe-3Q-Ivt" id="88B-0f-ajW"/>
                         <outlet property="retypePassword" destination="nh4-Md-62c" id="XZf-Dl-gsX"/>
-                        <segue destination="G7F-Hi-7qP" kind="show" identifier="signupToHome" id="E6B-FM-iRX"/>
+                        <segue destination="ahw-DM-ZFq" kind="show" identifier="signupToHome" id="4Ci-ie-vtd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfF-hy-l4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,72 +241,66 @@
             <point key="canvasLocation" x="2247.826086956522" y="-75"/>
         </scene>
         <!--Home View Controller-->
-        <scene sceneID="Luy-h2-heD">
+        <scene sceneID="khg-EP-ZJk">
             <objects>
-                <viewController id="Veg-pP-wWy" customClass="HomeViewController" customModule="ItsmTool2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ml5-nh-gW4">
+                <viewController id="ahw-DM-ZFq" customClass="HomeViewController" customModule="ItsmTool2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BCO-nv-FPx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kk8-Gi-iUK">
-                                <rect key="frame" x="20" y="185" width="374" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Afu-Um-sXg">
+                                <rect key="frame" x="20" y="135" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick which channel you want to join" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXe-L0-iez">
-                                <rect key="frame" x="20" y="156" width="271" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick a Channel to Join" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KB-9B-MEd">
+                                <rect key="frame" x="20" y="106" width="169" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFI-X6-Q1C">
-                                <rect key="frame" x="233" y="240" width="161" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeQ-Yv-JZO">
+                                <rect key="frame" x="259" y="173" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Enter Selected Channel">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="enterChannel:" destination="Veg-pP-wWy" eventType="touchUpInside" id="DK5-xQ-eck"/>
-                                </connections>
+                                <state key="normal" title="Proceed to Channel"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="FKY-Pf-R1K"/>
+                        <viewLayoutGuide key="safeArea" id="EmM-aI-deP"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Qej-g6-wJa">
-                        <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="il0-BM-3am">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cCf-AI-0Qo">
-                                <rect key="frame" x="20" y="7" width="121" height="30"/>
+                    <navigationItem key="navigationItem" id="HXs-9e-YjW">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="lkd-1R-va5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7FH-p7-hcr">
+                                <rect key="frame" x="20" y="7" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Join new Channel"/>
-                                <connections>
-                                    <action selector="joinNewChannel:" destination="Veg-pP-wWy" eventType="touchUpInside" id="7g5-B9-kbD"/>
-                                </connections>
+                                <state key="normal" title="Join New Channel"/>
                             </button>
+                            <connections>
+                                <action selector="joinNewChannel:" destination="ahw-DM-ZFq" id="lJo-Eq-zMP"/>
+                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="0Lt-J6-NmU">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Adt-Nl-M0e">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ZLF-QT-ywv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CZG-Tl-A3X">
                                 <rect key="frame" x="346" y="7" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
-                                    <action selector="logout:" destination="Veg-pP-wWy" eventType="touchUpInside" id="W5J-05-0oU"/>
+                                    <action selector="logout:" destination="ahw-DM-ZFq" eventType="touchUpInside" id="hqD-JI-YwV"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="groupField" destination="Kk8-Gi-iUK" id="RDg-NW-3vD"/>
-                        <segue destination="hDQ-Sr-oWz" kind="show" identifier="proceedToChannel" id="JHi-Lq-bxh"/>
+                        <outlet property="groupPickerField" destination="Afu-Um-sXg" id="c4P-Gb-4hq"/>
+                        <segue destination="hDQ-Sr-oWz" kind="show" id="xD9-nU-Dhy"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9KN-XV-KmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ez4-76-FUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2381" y="607"/>
+            <point key="canvasLocation" x="2248" y="705"/>
         </scene>
         <!--Channel View Controller-->
         <scene sceneID="9tV-RK-ZUZ">
@@ -401,7 +395,7 @@
                     <connections>
                         <outlet property="email" destination="vOg-ld-KSA" id="tCj-cP-btY"/>
                         <outlet property="password" destination="Mop-BD-dQk" id="Vl5-ho-4Vk"/>
-                        <segue destination="G7F-Hi-7qP" kind="show" identifier="loginToHome" id="vxX-oI-zRg"/>
+                        <segue destination="ahw-DM-ZFq" kind="show" identifier="loginToHome" id="dfQ-l2-Sp9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghd-Oz-Adi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -425,24 +419,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzy-JG-kkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-575.22321428571422"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ndt-w7-ErL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G7F-Hi-7qP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2At-PC-d40">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Veg-pP-wWy" kind="relationship" relationship="rootViewController" id="mHo-hs-Teh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oOL-Kn-V5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1604" y="607"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="XlQ-21-9FB">
@@ -542,6 +518,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vxX-oI-zRg"/>
+        <segue reference="4Ci-ie-vtd"/>
     </inferredMetricsTieBreakers>
 </document>

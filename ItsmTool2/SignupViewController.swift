@@ -85,10 +85,10 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
                     if error == nil {
                         self.accessCodeExists(){ (accessCode) in
-                            //Adds the access Code to the the document and sets it data
-                            self.db.collection("Access Codes").document(accessCode).setData([self.email.text!: ["Admin", self.fullNameField.text!]])
-                            //add the user to the users
-                            self.db.collection("users").document(self.email.text!).setData(["Full Name": self.fullNameField.text!, accessCode: "access code"])
+//                         Adds the access Code to the the document and sets it data
+                           self.db.collection("Access Codes").document(accessCode).setData([self.email.text!: ["Admin", self.fullNameField.text!]])
+                           //add the user to the users
+                           self.db.collection("users").document(self.email.text!).setData(["Full Name": self.fullNameField.text!, accessCode: "access code"])
                             //let the user know that their stuff has been completed and give them their accessCode
                             let alertController = UIAlertController(title: "Your access code is " + accessCode, message: "Give those access codes to your employees or whoever you want to add to the server so they can join your server", preferredStyle: .alert)
                             let defaultAction = UIAlertAction(title: "Ok", style: .cancel

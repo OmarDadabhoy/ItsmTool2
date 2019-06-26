@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		226A6EA522C2DEF900FA9255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 226A6EA422C2DEF900FA9255 /* GoogleService-Info.plist */; };
+		226A6EA722C2E73F00FA9255 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6EA622C2E73F00FA9255 /* HomeViewController.swift */; };
 		22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */; };
 		22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */; };
 		22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B79222AB2BC0000EE7AB /* ViewController.swift */; };
@@ -17,10 +19,6 @@
 		22F2B7B122AB2BC1000EE7AB /* ItsmTool2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7B022AB2BC1000EE7AB /* ItsmTool2UITests.swift */; };
 		22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */; };
 		22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */; };
-		22F2B7C322AB302B000EE7AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7C222AB302B000EE7AB /* HomeViewController.swift */; };
-		22F2B7C522AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
-		22F2B7C622AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
-		22F2B7C722AB4413000EE7AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */; };
 		22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3632E22C1C62B00BC17AD /* MenuViewController.swift */; };
 		22F657D022BED1E8005F3C5C /* men.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F657CF22BED1E8005F3C5C /* men.png */; };
 		22F7A20122C2A3C800ABB678 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7A20022C2A3C800ABB678 /* User.swift */; };
@@ -51,6 +49,8 @@
 		00AE1D5D9FF4ECDBFB33D794 /* Pods-ItsmTool2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2Tests.debug.xcconfig"; path = "Target Support Files/Pods-ItsmTool2Tests/Pods-ItsmTool2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1470E74F41D69ED600EB9DDA /* Pods_ItsmTool2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsmTool2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21910222386D8F4AFC869B59 /* Pods_ItsmTool2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsmTool2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		226A6EA422C2DEF900FA9255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		226A6EA622C2E73F00FA9255 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		22F2B78D22AB2BC0000EE7AB /* ItsmTool2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItsmTool2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,8 +67,6 @@
 		22F2B7B222AB2BC1000EE7AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		22F2B7C222AB302B000EE7AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22F3632E22C1C62B00BC17AD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		22F657CF22BED1E8005F3C5C /* men.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = men.png; path = ../../../men.png; sourceTree = "<group>"; };
 		22F7A20022C2A3C800ABB678 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -148,8 +146,8 @@
 			children = (
 				22F657CC22BED072005F3C5C /* New Group */,
 				22FC0E4A22BDA42500151576 /* SWRevealViewController */,
-				22F2B7C422AB4413000EE7AB /* GoogleService-Info.plist */,
 				22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */,
+				226A6EA422C2DEF900FA9255 /* GoogleService-Info.plist */,
 				22F2B79222AB2BC0000EE7AB /* ViewController.swift */,
 				22F2B79422AB2BC0000EE7AB /* Main.storyboard */,
 				22F2B79722AB2BC1000EE7AB /* Assets.xcassets */,
@@ -157,10 +155,10 @@
 				22F2B79C22AB2BC1000EE7AB /* Info.plist */,
 				22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */,
 				22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */,
-				22F2B7C222AB302B000EE7AB /* HomeViewController.swift */,
 				22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */,
 				22F3632E22C1C62B00BC17AD /* MenuViewController.swift */,
 				22F7A20022C2A3C800ABB678 /* User.swift */,
+				226A6EA622C2E73F00FA9255 /* HomeViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -324,8 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F2B79B22AB2BC1000EE7AB /* LaunchScreen.storyboard in Resources */,
-				22F2B7C522AB4413000EE7AB /* GoogleService-Info.plist in Resources */,
 				22F2B79822AB2BC1000EE7AB /* Assets.xcassets in Resources */,
+				226A6EA522C2DEF900FA9255 /* GoogleService-Info.plist in Resources */,
 				22F657D022BED1E8005F3C5C /* men.png in Resources */,
 				22F2B79622AB2BC0000EE7AB /* Main.storyboard in Resources */,
 			);
@@ -335,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F2B7C622AB4413000EE7AB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +340,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F2B7C722AB4413000EE7AB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,11 +437,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FC0E4E22BDA4AB00151576 /* SWRevealViewController.m in Sources */,
-				22F2B7C322AB302B000EE7AB /* HomeViewController.swift in Sources */,
 				22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */,
 				22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */,
 				22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */,
 				22F7A20122C2A3C800ABB678 /* User.swift in Sources */,
+				226A6EA722C2E73F00FA9255 /* HomeViewController.swift in Sources */,
 				22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */,
 				22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */,
 				22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */,

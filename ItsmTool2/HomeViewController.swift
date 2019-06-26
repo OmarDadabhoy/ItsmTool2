@@ -2,41 +2,34 @@
 //  HomeViewController.swift
 //  ItsmTool2
 //
-//  Created by Omar Dadabhoy on 6/7/19.
+//  Created by Omar Dadabhoy on 6/25/19.
 //  Copyright © 2019 Omar Dadabhoy. All rights reserved.
 //
 
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
+    var email: String = ""
+    let db = Firestore.firestore()
     var fullName: String = ""
     var pickerData: [String] = []
-    let db = Firestore.firestore()
-    var email: String = ""
-    var groupPicker2 = UIPickerView()
-    @IBOutlet weak var groupField: UITextField!
+    @IBOutlet weak var groupPickerField: UITextField!
+    var groupPicker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.groupPicker2.delegate = self
-        self.groupField.inputView = groupPicker2
-        if(email == ""){
-            if let x = UserDefaults.standard.object(forKey: "userEmail") as? String {
-                email = x
-            }
-        } else {
-            UserDefaults.standard.set(email, forKey: "userEmail")
-        }
-        print(email)
-        self.fillPickerData()
+        self.groupPicker.delegate = self
+        self.groupPickerField.inputView = groupPicker
+        fillPickerData()
     }
     
-    //This method fills the picker view with all the channels they are involved in and sets the name
+    //Fills the picker data with all the access codes the user is affiliated with 
     func fillPickerData(){
         let docRef = db.collection("users").document(email)
         docRef.getDocument { (document, error) in
@@ -54,9 +47,9 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 }
                 print(self.pickerData)
                 if(self.pickerData.count >= 1){
-                    self.groupField.text = self.pickerData[0]
+                    self.groupPickerField.text = self.pickerData[0]
                 } else {
-                    self.groupField.text = "You are not currently in any channels please join a channel"
+                    self.groupPickerField.text = "You are not currently in any channels please join a channel"
                 }
             } else {
                 print("Document does not exist")
@@ -64,7 +57,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
-    //This method sets up the logout button and what itll do when clicker
+    //logs the user out of the app
     @IBAction func logout(_ sender: Any) {
         do{
             try Auth.auth().signOut()
@@ -77,28 +70,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         UIApplication.shared.keyWindow?.rootViewController = initial
     }
     
-    //number of column components in the picker
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    //number of rows in the picker
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    //The current item
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    //This method is connected to the enter channel button which will allow the user to enter
-    @IBAction func enterChannel(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "proceedToChannel", sender: self)
-    }
-    
-    //This method allows the user to add another access code and enter a new channel
+    //adds a new channel for the user
     @IBAction func joinNewChannel(_ sender: Any) {
         let alertController = UIAlertController(title: "Enter Access Code", message: nil, preferredStyle: .alert)
         alertController.addTextField() { (textField : UITextField!) -> Void in
@@ -107,7 +79,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let saveAction = UIAlertAction(title: "Join", style: .default, handler: { alert -> Void in
             let textField = alertController.textFields![0] as UITextField
             let docRef = self.db.collection("Access Codes").document(textField.text!)
-            docRef.getDocument(){ (document, error) in 
+            docRef.getDocument(){ (document, error) in
                 if let document = document, document.exists {
                     self.db.collection("Access Codes").document(textField.text!).updateData([self.email: ["Employee", self.fullName]])
                     //Add the user to the user database and the Auth should make sure this user is not previously registered
@@ -129,14 +101,28 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.present(alertController, animated: true, completion: nil)
     }
     
-    //send the access code value to the home view controller
+    //number of columns
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //number of rows
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //The current item
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    //sends the email to the home view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ChannelViewController {
             let vc = segue.destination as? ChannelViewController
-            vc?.accessCode = self.groupField.text!
+            vc?.accessCode = self.groupPickerField.text!
         }
     }
-    
     /*
     // MARK: - Navigation
 
