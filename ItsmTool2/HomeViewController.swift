@@ -124,9 +124,19 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    //contains what is selected
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        groupPickerField.text = pickerData[row]
+    }
+    
+    //proceed to the channel
     @IBAction func proceedToChannel(_ sender: Any) {
+        currentAccessCode = groupPickerField.text!
+        userEmail = self.email
+        userFullName = self.fullName
         self.performSegue(withIdentifier: "goToChannel", sender: self)
     }
+    
     /*
     // MARK: - Navigation
 

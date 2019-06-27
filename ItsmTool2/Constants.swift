@@ -9,3 +9,6 @@
 import Foundation
 
 var currentAccessCode: String = ""
+var userFullName: String = ""
+var userEmail: String = ""
+var isAdmin: Bool = false

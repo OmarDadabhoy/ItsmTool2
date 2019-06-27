@@ -26,6 +26,7 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
             self.revealViewController().navigationItem.leftBarButtonItem = menuButton
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        fillTableData()
     }
     
     func fillTableData(){
@@ -45,7 +46,11 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         return cell!
     }
     
-
+    //Create a new incident
+    @IBAction func createNewIncident(_ sender: Any) {
+        self.performSegue(withIdentifier: "createNewIncident", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 
