@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var numberTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var creatorTextField: UITextField!
     @IBOutlet weak var date: UITextField!
     @IBOutlet weak var urgencyTextField: UITextField!
@@ -37,52 +37,13 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
         print(formattedDate)
         date.text = formattedDate
         date.isUserInteractionEnabled = false
+        print(nameTextField.text! + "test")
     }
     
     //Cancels and goes back to the incidents
     @IBAction func cancel(_ sender: Any) {
         if let navController = self.navigationController{
             navController.popViewController(animated: true)
-        }
-    }
-    
-    //Creates the incident
-    @IBAction func createIncident(_ sender: Any) {
-        if(self.numberTextField.text! != "") {
-            let docRef = db.collection("Access Code Incidents").document(currentAccessCode)
-            docRef.getDocument { (document, error) in
-                //if the document exists
-                if let document = document, document.exists {
-                    let data = document.data()
-                    var found: Bool = false
-                    //Check to see if the name is not in there
-                    for name in data! {
-                        if(name.key == self.numberTextField.text!) {
-                            found = true
-                        }
-                    }
-                    //if its found let the user know they need to pick another one
-                    if(found){
-                        let alertController = UIAlertController(title: "The name has already been used", message: "The name you have chosen for this incident is already in use please try another one", preferredStyle: .alert)
-                        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                        alertController.addAction(alertAction)
-                        self.present(alertController, animated: true, completion: nil)
-                    } else {
-                        //if it was not found then go ahead and add the data
-                        self.db.collection("Access Codes Incidents").document(currentAccessCode).updateData([self.numberTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
-                        if let navController = self.navigationController{
-                            navController.popViewController(animated: true)
-                        }
-                    }
-                    //if the document is not in there then just make it
-                } else {
-                    print("Document does not exist")
-                    self.db.collection("Access Code Incidents").addDocument(data: [currentAccessCode: [self.numberTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]]])
-                    if let navController = self.navigationController{
-                        navController.popViewController(animated: true)
-                    }
-                }
-            }
         }
     }
     
@@ -106,6 +67,44 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
         urgencyTextField.text = pickerData[row]
     }
     
+    @IBAction func createIncident(_ sender: Any) {
+        if(self.nameTextField.text! != "") {
+            let docRef = db.collection("Access Code Incidents").document(currentAccessCode)
+            docRef.getDocument { (document, error) in
+                //if the document exists
+                if let document = document, document.exists {
+                    let data = document.data()
+                    var found: Bool = false
+                    //Check to see if the name is not in there
+                    for name in data! {
+                        if(name.key == self.nameTextField.text!) {
+                            found = true
+                        }
+                    }
+                    //if its found let the user know they need to pick another one
+                    if(found){
+                        let alertController = UIAlertController(title: "The name has already been used", message: "The name you have chosen for this incident is already in use please try another one", preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                        alertController.addAction(alertAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    } else {
+                        //if it was not found then go ahead and add the data
+                        self.db.collection("Access Codes Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
+                        if let navController = self.navigationController{
+                            navController.popViewController(animated: true)
+                        }
+                    }
+                    //if the document is not in there then just make it
+                } else {
+                    print("Document does not exist")
+                    self.db.collection("Access Code Incidents").document(currentAccessCode).setData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
+                    if let navController = self.navigationController{
+                        navController.popViewController(animated: true)
+                    }
+                }
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
