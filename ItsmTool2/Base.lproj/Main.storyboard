@@ -314,7 +314,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYd-GJ-Wb5">
-                                <rect key="frame" x="224" y="130" width="170" height="30"/>
+                                <rect key="frame" x="122" y="190" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Return to Channel Picker"/>
                                 <connections>
@@ -487,14 +487,75 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ZAo-Y2-PtD" id="1KD-3R-wQb"/>
+                        <segue destination="KzJ-Ng-hyZ" kind="show" identifier="goToIncidents" id="ksy-4g-NQM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXe-z4-L0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2249" y="2162"/>
         </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="R9F-Zj-SE3">
+            <objects>
+                <viewController id="KzJ-Ng-hyZ" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="avQ-Tn-aHY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cYh-7p-WgI"/>
+                    </view>
+                    <connections>
+                        <segue destination="z2j-6g-QUt" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="u1K-mi-S74"/>
+                        <segue destination="Oln-94-tTV" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="FVr-lg-94w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDq-Z6-jJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3464" y="2162"/>
+        </scene>
+        <!--Incidents View Controller-->
+        <scene sceneID="rwv-gC-6tl">
+            <objects>
+                <viewController id="Oln-94-tTV" customClass="IncidentsViewController" customModule="ItsmTool2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XGE-7f-ic7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2S8-Ui-SLV">
+                                <rect key="frame" x="0.0" y="124" width="414" height="772"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Y83-bi-Oid">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y83-bi-Oid" id="ZMQ-gh-EDv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTB-nh-EJa">
+                                <rect key="frame" x="304" y="86" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New Incident"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Qsh-yw-bXt"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="2S8-Ui-SLV" id="oqR-jt-w8Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fpp-4Z-TaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4431.884057971015" y="2161.6071428571427"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="u1K-mi-S74"/>
         <segue reference="4Ci-ie-vtd"/>
     </inferredMetricsTieBreakers>
 </document>

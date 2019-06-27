@@ -11,7 +11,7 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var tableData: [String] = ["Incidents"]
+    var tableData: [String] = ["Home", "Incidents"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,21 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(tableData[indexPath.row])
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(self.tableData[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+        if(self.tableData[indexPath.row] == "Incidents") {
+            self.performSegue(withIdentifier: "goToIncidents", sender: self)
+        } else if(self.tableData[indexPath.row] == "Home") {
+            let channelViewController = ChannelViewController();
+            if channelViewController.viewIfLoaded?.window == nil {
+                // viewController is not visible
+                if let navController = self.navigationController{
+                    navController.popViewController(animated: true)
+                }
+            }
+        }
     }
     
     

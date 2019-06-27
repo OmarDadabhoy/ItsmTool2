@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+var currentAccessCode: String = ""
