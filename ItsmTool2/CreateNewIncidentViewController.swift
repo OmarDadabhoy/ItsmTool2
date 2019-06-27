@@ -89,7 +89,7 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                         self.present(alertController, animated: true, completion: nil)
                     } else {
                         //if it was not found then go ahead and add the data
-                        self.db.collection("Access Codes Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
+                        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
                         if let navController = self.navigationController{
                             navController.popViewController(animated: true)
                         }
