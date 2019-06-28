@@ -20,6 +20,8 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
     var urgencyPicker = UIPickerView()
     let pickerData: [String] = ["1 - Most Urgent", "2", "3", "4", "5 - Least Urgent"]
     let db = Firestore.firestore()
+    var callbackResult: ((String) -> ())?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,9 +93,10 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                         //if it was not found then go ahead and add the data
                         self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
                         //update everything in the incidents table
-                        let incidentsViewController: IncidentsViewController = IncidentsViewController()
-                        incidentsViewController.tableData.append(self.nameTextField.text!)
+//                        let incidentsViewController: IncidentsViewController = IncidentsViewController()
+//                        incidentsViewController.tableData.append(self.nameTextField.text!)
                         if let navController = self.navigationController{
+                            self.callbackResult?(self.nameTextField.text!)
                             navController.popViewController(animated: true)
                         }
                     }
@@ -101,7 +104,10 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                 } else {
                     print("Document does not exist")
                     self.db.collection("Access Code Incidents").document(currentAccessCode).setData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
+//                    let incidentsViewController: IncidentsViewController = IncidentsViewController()
+//                    incidentsViewController.tableData.append(self.nameTextField.text!)
                     if let navController = self.navigationController{
+                        self.callbackResult?(self.nameTextField.text!)
                         navController.popViewController(animated: true)
                     }
                 }

@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewIncidentViewController: UIViewController {
-
+    
+    let db = Firestore.firestore()
+    var incidentName: String = ""
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var creatorTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var urgencyTextField: UITextField!
+    @IBOutlet weak var Descirption: UITextField!
+    @IBOutlet weak var resolver: UITextField!
+    @IBOutlet weak var resolveIncidentButton: UIButton!
+    @IBOutlet weak var closeIncidentButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    }
+    
+    func getData() {
+        
     }
     
 

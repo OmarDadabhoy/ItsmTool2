@@ -16,6 +16,7 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
     var tableData: [String] = []
     let db = Firestore.firestore()
     var tableDataValues: [Any] = []
+    var pickedData: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,18 +71,20 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(self.tableData[indexPath.row])
+        pickedData = self.tableData[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
-        if(self.tableData[indexPath.row] == "Incidents") {
-            self.performSegue(withIdentifier: "goToIncidents", sender: self)
-        } else if(self.tableData[indexPath.row] == "Home") {
-            let channelViewController = ChannelViewController();
-            if channelViewController.viewIfLoaded?.window == nil {
-                // viewController is not visible
-                if let navController = self.navigationController{
-                    navController.popViewController(animated: true)
-                }
-            }
-        }
+        self.performSegue(withIdentifier: "goToTableData", sender: self)
+//        if(self.tableData[indexPath.row] == "Incidents") {
+//            self.performSegue(withIdentifier: "goToIncidents", sender: self)
+//        } else if(self.tableData[indexPath.row] == "Home") {
+//            let channelViewController = ChannelViewController();
+//            if channelViewController.viewIfLoaded?.window == nil {
+//                // viewController is not visible
+//                if let navController = self.navigationController{
+//                    navController.popViewController(animated: true)
+//                }
+//            }
+//        }
     }
     
     //Create a new incident
@@ -99,6 +102,22 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         print(tableData)
         self.tableView.dataSource = self
         self.tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createNewIncident" {
+            let destinationVC = segue.destination as! CreateNewIncidentViewController
+            // Set any variable in ViewController2
+            destinationVC.callbackResult = { result in
+                self.tableData.append(result)
+                // assign passing data etc..
+                self.tableView.reloadData()
+            }
+        }
+        if segue.destination is ViewIncidentViewController{
+            let vc = segue.destination as? ViewIncidentViewController
+            vc?.incidentName = pickedData
+        }
     }
     
     /*
