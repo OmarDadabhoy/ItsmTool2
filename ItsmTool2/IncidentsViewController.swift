@@ -91,6 +91,13 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
+        print("viewDidAppear")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(tableData)
+        self.tableView.dataSource = self
         self.tableView.reloadData()
     }
     
