@@ -89,6 +89,11 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         self.performSegue(withIdentifier: "createNewIncident", sender: self)
     }
     
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     /*
     // MARK: - Navigation
 

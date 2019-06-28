@@ -551,11 +551,27 @@
                     <connections>
                         <outlet property="tableView" destination="2S8-Ui-SLV" id="oqR-jt-w8Q"/>
                         <segue destination="n61-o7-C3S" kind="show" identifier="createNewIncident" id="p0K-Du-hFT"/>
+                        <segue destination="ohG-RI-I3E" kind="show" identifier="goToTableData" id="8N1-gY-vwl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fpp-4Z-TaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4431.884057971015" y="2161.6071428571427"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="daB-Rz-afI">
+            <objects>
+                <viewController id="ohG-RI-I3E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ju1-FX-RrE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zTV-GK-6lT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQR-aZ-z0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4436" y="2853"/>
         </scene>
         <!--Create New Incident View Controller-->
         <scene sceneID="Pf0-OA-Awc">
@@ -669,7 +685,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ksy-4g-NQM"/>
         <segue reference="u1K-mi-S74"/>
         <segue reference="4Ci-ie-vtd"/>
     </inferredMetricsTieBreakers>
