@@ -69,6 +69,7 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
         urgencyTextField.text = pickerData[row]
     }
     
+    //cretes a new incident
     @IBAction func createIncident(_ sender: Any) {
         if(self.nameTextField.text! != "") {
             let docRef = db.collection("Access Code Incidents").document(currentAccessCode)
@@ -91,10 +92,8 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                         self.present(alertController, animated: true, completion: nil)
                     } else {
                         //if it was not found then go ahead and add the data
-                        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
+                        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!, userEmail]])
                         //update everything in the incidents table
-//                        let incidentsViewController: IncidentsViewController = IncidentsViewController()
-//                        incidentsViewController.tableData.append(self.nameTextField.text!)
                         if let navController = self.navigationController{
                             self.callbackResult?(self.nameTextField.text!)
                             navController.popViewController(animated: true)
@@ -103,9 +102,8 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                     //if the document is not in there then just make it
                 } else {
                     print("Document does not exist")
-                    self.db.collection("Access Code Incidents").document(currentAccessCode).setData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!]])
-//                    let incidentsViewController: IncidentsViewController = IncidentsViewController()
-//                    incidentsViewController.tableData.append(self.nameTextField.text!)
+                    self.db.collection("Access Code Incidents").document(currentAccessCode).setData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!, userEmail]])
+                    //Send the incident name back
                     if let navController = self.navigationController{
                         self.callbackResult?(self.nameTextField.text!)
                         navController.popViewController(animated: true)

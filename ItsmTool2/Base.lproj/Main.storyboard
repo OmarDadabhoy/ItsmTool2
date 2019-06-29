@@ -544,6 +544,11 @@
                                     <action selector="createNewIncident:" destination="Oln-94-tTV" eventType="touchUpInside" id="FAQ-DQ-Rq3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxn-qN-Soe">
+                                <rect key="frame" x="20" y="86" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="See only incidents you are working on"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Qsh-yw-bXt"/>
@@ -570,11 +575,17 @@
                                 <rect key="frame" x="151" y="595" width="113" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Resolve incident"/>
+                                <connections>
+                                    <action selector="resolveIncident:" destination="ohG-RI-I3E" eventType="touchUpInside" id="5fe-yN-lpJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erw-rN-Yrb">
                                 <rect key="frame" x="151" y="633" width="113" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Close Incident"/>
+                                <connections>
+                                    <action selector="closeIncident:" destination="ohG-RI-I3E" eventType="touchUpInside" id="psQ-9e-lKx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Creator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lJ-C2-Xx9">
                                 <rect key="frame" x="18" y="167" width="58" height="21"/>
@@ -660,6 +671,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLY-tr-eDp">
+                                <rect key="frame" x="177" y="671" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resolved"/>
+                                <connections>
+                                    <action selector="resolved:" destination="ohG-RI-I3E" eventType="touchUpInside" id="zok-QE-SWB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSZ-fZ-fOc">
+                                <rect key="frame" x="156" y="709" width="103" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop Resolving"/>
+                                <connections>
+                                    <action selector="stopResolvingIncident:" destination="ohG-RI-I3E" eventType="touchUpInside" id="aZW-nY-Brh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zTV-GK-6lT"/>
@@ -671,7 +698,9 @@
                         <outlet property="dateTextField" destination="Ztb-XA-NP3" id="u8o-zB-W5V"/>
                         <outlet property="nameTextField" destination="cdA-FS-C1d" id="t6B-vd-f5d"/>
                         <outlet property="resolveIncidentButton" destination="zEK-F8-iLF" id="eLl-NA-pe1"/>
+                        <outlet property="resolvedButton" destination="OLY-tr-eDp" id="YkW-TO-yQz"/>
                         <outlet property="resolver" destination="szt-1T-6YE" id="fWc-oM-RRe"/>
+                        <outlet property="stopResolvingButton" destination="SSZ-fZ-fOc" id="gsp-MB-UoF"/>
                         <outlet property="urgencyTextField" destination="gZB-gf-7xM" id="gvm-dl-zBx"/>
                     </connections>
                 </viewController>

@@ -74,17 +74,6 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         pickedData = self.tableData[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: "goToTableData", sender: self)
-//        if(self.tableData[indexPath.row] == "Incidents") {
-//            self.performSegue(withIdentifier: "goToIncidents", sender: self)
-//        } else if(self.tableData[indexPath.row] == "Home") {
-//            let channelViewController = ChannelViewController();
-//            if channelViewController.viewIfLoaded?.window == nil {
-//                // viewController is not visible
-//                if let navController = self.navigationController{
-//                    navController.popViewController(animated: true)
-//                }
-//            }
-//        }
     }
     
     //Create a new incident
@@ -98,13 +87,16 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         
     }
     
+    //Reload table when we open this
     override func viewWillAppear(_ animated: Bool) {
         print(tableData)
         self.tableView.dataSource = self
         self.tableView.reloadData()
     }
     
+    //Contains segue info
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if we are creating a new incident make sure they pass back the incident name and put it in the tableView
         if segue.identifier == "createNewIncident" {
             let destinationVC = segue.destination as! CreateNewIncidentViewController
             // Set any variable in ViewController2
@@ -114,6 +106,26 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
                 self.tableView.reloadData()
             }
         }
+        if segue.identifier == "goToTableData" {
+            let destinationVC = segue.destination as! ViewIncidentViewController
+            // Set any variable in ViewController2
+            destinationVC.callbackResult = { result in
+                var found: Bool = false
+                var i: Int = 0
+                while(!found && i < self.tableData.count){
+                    if(result == self.tableData[i]){
+                        found = true
+                    }
+                    i += 1
+                }
+                if(found){
+                    self.tableData.remove(at: (i - 1))
+                }
+                // assign passing data etc..
+                self.tableView.reloadData()
+            }
+        }
+        //if the we are viewing an incident pass in the incidentName to the pickedData
         if segue.destination is ViewIncidentViewController{
             let vc = segue.destination as? ViewIncidentViewController
             vc?.incidentName = pickedData
