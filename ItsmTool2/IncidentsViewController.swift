@@ -66,21 +66,19 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         //create an index for the loop
         var i: Int = 0
         var found: Bool = false
+        //loop through until we have either found an element which our date is less than or there are values availbal
         while(!found && i < tableDataValues.count) {
             let currentDataVal = tableDataValues[i] as! [String]
             let currentDate: String = currentDataVal[1]
             let currentFinalDate = dateFormatter.date(from: currentDate)
-            if((finalDate as! Date) < (currentFinalDate as! Date)){
-                
+            //once our finalDate is less than the current we can break out of the loop because it belongs here
+            if((finalDate!) < (currentFinalDate!)){
+                found = true
             }
             i += 1
         }
-//        for dataValue in tableDataValues {
-//            let currentDataVal = dataValue as! [String]
-//            let currentDate: String = currentDataVal[1]
-//            let currentFinalDate = dateFormatter.date(from: currentDate)
-//
-//        }
+        tableData.insert(dataDocKey, at: (i - 1))
+        tableDataValues.insert(dataDocVal, at: (i - 1))
     }
     
     //The number of rows
