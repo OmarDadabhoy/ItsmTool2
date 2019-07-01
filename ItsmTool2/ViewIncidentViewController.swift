@@ -34,23 +34,27 @@ class ViewIncidentViewController: UIViewController {
         nameTextField.isUserInteractionEnabled = false
         self.stopResolvingButton.isHidden = true
         self.resolvedButton.isHidden = true
+        self.resolveIncidentButton.isHidden = false
         getData() { (data) in
             self.creatorTextField.text = data[0]
             self.dateTextField.text = data[1]
             self.urgencyTextField.text = String(data[2].first!)
             self.Descirption.text = data[3]
             self.incidentEmail = data[4]
-            if(data.count == 6){
+            if(data.count >= 6){
                 self.resolver.text = data[5]
                 self.resolveIncidentButton.isHidden = true
                 self.stopResolvingButton.isHidden = false
+                self.resolvedButton.isHidden = false
+            }
+            if(data.count == 7){
                 self.resolvedButton.isHidden = true
+                self.stopResolvingButton.isHidden = true
             }
             self.creatorTextField.isUserInteractionEnabled = false
             self.dateTextField.isUserInteractionEnabled = false
             self.urgencyTextField.isUserInteractionEnabled = false
             self.Descirption.isUserInteractionEnabled = false
-            self.resolveIncidentButton.isHidden = false
             if(userEmail != self.incidentEmail && !isAdmin){
                 self.closeIncidentButton.isHidden = true
             }
@@ -81,7 +85,7 @@ class ViewIncidentViewController: UIViewController {
         //hide the button and make the Ui changes
         self.resolveIncidentButton.isHidden = true
         self.stopResolvingButton.isHidden = false
-        self.resolvedButton.isHidden = true
+        self.resolvedButton.isHidden = false
         self.resolver.text = userEmail
         //let them know they are now the resolver of this incident
         let alertController = UIAlertController(title: "You are now the resolver of this incident", message: "You are now the resolver of this incident ", preferredStyle: .alert)
@@ -115,12 +119,22 @@ class ViewIncidentViewController: UIViewController {
     
     //Resolver can click this to show that the incident has been resolved
     @IBAction func resolved(_ sender: Any) {
-        
+        self.resolvedButton.isHidden = true
+        self.stopResolvingButton.isHidden = true
+        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.Descirption.text!, incidentEmail, userEmail, "resolved"]])
     }
     
     //Lets a user drop the incident and stop resolving it
     @IBAction func stopResolvingIncident(_ sender: Any) {
-        
+        self.stopResolvingButton.isHidden = true
+        self.resolvedButton.isHidden = true
+        self.resolveIncidentButton.isHidden = false
+        self.resolver.text = ""
+        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.Descirption.text!, incidentEmail]])
+        let alertController = UIAlertController(title: "You are no longer the resolver of this incident", message: "You are no longer the resolver of this incident ", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
