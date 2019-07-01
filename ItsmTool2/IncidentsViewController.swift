@@ -56,6 +56,33 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    //sorts the table data by date
+    private func addTableDataBasedOfDate(dataDocKey: String, dataDocVal: [String]){
+        //we want to turn the current date which we want to answer into a date object
+        let date: String = dataDocVal[1]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
+        let finalDate = dateFormatter.date(from: date)
+        //create an index for the loop
+        var i: Int = 0
+        var found: Bool = false
+        while(!found && i < tableDataValues.count) {
+            let currentDataVal = tableDataValues[i] as! [String]
+            let currentDate: String = currentDataVal[1]
+            let currentFinalDate = dateFormatter.date(from: currentDate)
+            if((finalDate as! Date) < (currentFinalDate as! Date)){
+                
+            }
+            i += 1
+        }
+//        for dataValue in tableDataValues {
+//            let currentDataVal = dataValue as! [String]
+//            let currentDate: String = currentDataVal[1]
+//            let currentFinalDate = dateFormatter.date(from: currentDate)
+//
+//        }
+    }
+    
     //The number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
@@ -69,6 +96,7 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         return cell!
     }
     
+    //performs the segue to show the data for the incident the user clicks on
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(self.tableData[indexPath.row])
         pickedData = self.tableData[indexPath.row]
@@ -83,8 +111,6 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
-        print("viewDidAppear")
-        
     }
     
     //Reload table when we open this
@@ -106,6 +132,7 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
                 self.tableView.reloadData()
             }
         }
+        //if the user deletes a piece of data and send it back then go through and find it and remove it
         if segue.identifier == "goToTableData" {
             let destinationVC = segue.destination as! ViewIncidentViewController
             // Set any variable in ViewController2
