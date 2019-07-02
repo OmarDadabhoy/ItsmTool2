@@ -17,11 +17,16 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
     let db = Firestore.firestore()
     var tableDataValues: [Any] = []
     var pickedData: String = ""
+    var tempTableData: [String] = []
+    var tempTableDataValues: [Any] = []
+    @IBOutlet weak var seeOnlyYourIncidentsButton: UIButton!
+    @IBOutlet weak var viewAllIncidentsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        viewAllIncidentsButton.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         self.fillTableData()
@@ -44,9 +49,10 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
                 let data = document.data()
                 //loop through the data and add all the keys/incident names to the table data
                 for dataDoc in data! {
-                    self.tableData.append(dataDoc.key)
-                    //This will contain the values for each of the keys in tableData
-                    self.tableDataValues.append(dataDoc.value)
+//                    self.tableData.append(dataDoc.key)
+//                    //This will contain the values for each of the keys in tableData
+//                    self.tableDataValues.append(dataDoc.value)
+                    self.addTableDataBasedOfDate(dataDocKey: dataDoc.key, dataDocVal: dataDoc.value as! [String])
                 }
                 print(self.tableData)
                 self.tableView.reloadData()
@@ -58,27 +64,33 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
     
     //sorts the table data by date
     private func addTableDataBasedOfDate(dataDocKey: String, dataDocVal: [String]){
-        //we want to turn the current date which we want to answer into a date object
-        let date: String = dataDocVal[1]
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
-        let finalDate = dateFormatter.date(from: date)
-        //create an index for the loop
-        var i: Int = 0
-        var found: Bool = false
-        //loop through until we have either found an element which our date is less than or there are values availbal
-        while(!found && i < tableDataValues.count) {
-            let currentDataVal = tableDataValues[i] as! [String]
-            let currentDate: String = currentDataVal[1]
-            let currentFinalDate = dateFormatter.date(from: currentDate)
-            //once our finalDate is less than the current we can break out of the loop because it belongs here
-            if((finalDate!) < (currentFinalDate!)){
-                found = true
+        if(tableData.count == 0){
+            tableData.append(dataDocKey)
+            tableDataValues.append(dataDocVal)
+        } else {
+            //we want to turn the current date which we want to answer into a date object
+            let date: String = dataDocVal[1]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
+            let finalDate = dateFormatter.date(from: date)
+            //create an index for the loop
+            var i: Int = 0
+            var found: Bool = false
+            //loop through until we have either found an element which our date is less than or there are values availbal
+            while(!found && i < tableDataValues.count) {
+                let currentDataVal = tableDataValues[i] as! [String]
+                let currentDate: String = currentDataVal[1]
+                let currentFinalDate = dateFormatter.date(from: currentDate)
+                //once our finalDate is less than the current we can break out of the loop because it belongs here
+                if((finalDate!) < (currentFinalDate!)){
+                    found = true
+                }
+                i += 1
             }
-            i += 1
+            tableData.insert(dataDocKey, at: (i - 1))
+            tableDataValues.insert(dataDocVal, at: (i - 1))
         }
-        tableData.insert(dataDocKey, at: (i - 1))
-        tableDataValues.insert(dataDocVal, at: (i - 1))
+        print(tableData)
     }
     
     //The number of rows
@@ -125,7 +137,7 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
             let destinationVC = segue.destination as! CreateNewIncidentViewController
             // Set any variable in ViewController2
             destinationVC.callbackResult = { result in
-                self.tableData.append(result)
+                self.addTableDataBasedOfDate(dataDocKey: result, dataDocVal: [])
                 // assign passing data etc..
                 self.tableView.reloadData()
             }
@@ -157,6 +169,57 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    //Click this to only see your incidents
+    @IBAction func seeOnlyYOurIncidents(_ sender: Any) {
+        fillTempArrays()
+        tableData.removeAll()
+        tableDataValues.removeAll()
+        self.db.collection("User Incidents").document(userEmail).getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                for dataDoc in data! {
+                    self.addTableDataBasedOfDate(dataDocKey: dataDoc.key, dataDocVal: dataDoc.value as! [String])
+                }
+                self.tableView.reloadData()
+            } else {
+                print("Doc not found")
+            }
+        }
+        self.seeOnlyYourIncidentsButton.isHidden = true
+        self.viewAllIncidentsButton.isHidden = false
+    }
+    
+    //Fill the temporary arrays with the current data
+    private func fillTempArrays() {
+        tempTableData.removeAll()
+        tempTableDataValues.removeAll()
+        for data in tableData {
+            tempTableData.append(data)
+        }
+        for data in tableDataValues{
+            tempTableDataValues.append(data)
+        }
+    }
+    
+    //go back to viewing all incidents 
+    @IBAction func viewAllIncidents(_ sender: Any) {
+        fillNonTempArraysAgain()
+        self.seeOnlyYourIncidentsButton.isHidden = false
+        self.viewAllIncidentsButton.isHidden = true
+    }
+    
+    //fills the non temp arrays again if the user chooses to view all incidents
+    private func fillNonTempArraysAgain(){
+        tableData.removeAll()
+        tableDataValues.removeAll()
+        for data in tempTableData{
+            tableData.append(data)
+        }
+        for data in tempTableDataValues{
+            tableDataValues.append(data)
+        }
+        self.tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 

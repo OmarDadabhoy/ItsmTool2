@@ -548,13 +548,26 @@
                                 <rect key="frame" x="20" y="86" width="160" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="See only your Incidents"/>
+                                <connections>
+                                    <action selector="seeOnlyYOurIncidents:" destination="Oln-94-tTV" eventType="touchUpInside" id="PxK-C6-zxT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OK-lO-3Pj">
+                                <rect key="frame" x="20" y="86" width="119" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View all Incidents"/>
+                                <connections>
+                                    <action selector="viewAllIncidents:" destination="Oln-94-tTV" eventType="touchUpInside" id="zUj-yZ-4yo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Qsh-yw-bXt"/>
                     </view>
                     <connections>
+                        <outlet property="seeOnlyYourIncidentsButton" destination="dxn-qN-Soe" id="CIl-16-cQR"/>
                         <outlet property="tableView" destination="2S8-Ui-SLV" id="oqR-jt-w8Q"/>
+                        <outlet property="viewAllIncidentsButton" destination="4OK-lO-3Pj" id="bXH-pM-6Aa"/>
                         <segue destination="n61-o7-C3S" kind="show" identifier="createNewIncident" id="p0K-Du-hFT"/>
                         <segue destination="ohG-RI-I3E" kind="show" identifier="goToTableData" id="8N1-gY-vwl"/>
                     </connections>

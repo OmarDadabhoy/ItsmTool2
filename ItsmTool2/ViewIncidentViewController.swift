@@ -82,6 +82,7 @@ class ViewIncidentViewController: UIViewController {
     @IBAction func resolveIncident(_ sender: Any) {
         //set the resolver in firebase
         self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.Descirption.text!, incidentEmail, userEmail]])
+        self.db.collection("User Incidents").document(userEmail).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.Descirption.text!, incidentEmail, userEmail]])
         //hide the button and make the Ui changes
         self.resolveIncidentButton.isHidden = true
         self.stopResolvingButton.isHidden = false
@@ -103,7 +104,7 @@ class ViewIncidentViewController: UIViewController {
             //if they still want to close go ahead and delete the info of of the database and update the table controller
             self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: FieldValue.delete(),
             ]) { err in
-                if let err = err{
+                if let err = err {
                     print("Error updating doc")
                 } else{
                     print("Doc updated")
@@ -131,6 +132,14 @@ class ViewIncidentViewController: UIViewController {
         self.resolveIncidentButton.isHidden = false
         self.resolver.text = ""
         self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.Descirption.text!, incidentEmail]])
+        self.db.collection("User Incidents").document(userEmail).updateData([self.nameTextField.text!: FieldValue.delete(),
+            ]){ err in
+                if let err = err{
+                    print("Success")
+                } else {
+                    print("Failure")
+                }
+        }
         let alertController = UIAlertController(title: "You are no longer the resolver of this incident", message: "You are no longer the resolver of this incident ", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alertController.addAction(alertAction)
