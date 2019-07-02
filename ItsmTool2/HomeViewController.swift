@@ -134,6 +134,23 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         currentAccessCode = groupPickerField.text!
         userEmail = self.email
         userFullName = self.fullName
+        let docRef = db.collection("Access Codes").document(currentAccessCode)
+        //figures out if the user is an admin of the server or not
+        docRef.getDocument{ (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                //go through the access codes users
+                for docData in data! {
+                    //once we find the userEmail then check if its an admin, if not then keep it
+                    if(docData.key == userEmail) {
+                        let fields = docData.value as! [String]
+                        if(fields[0] == "admin"){
+                            isAdmin = true
+                        }
+                    }
+                }
+            }
+        }
         self.performSegue(withIdentifier: "goToChannel", sender: self)
     }
     
