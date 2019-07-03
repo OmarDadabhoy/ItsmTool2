@@ -93,8 +93,6 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                     } else {
                         //if it was not found then go ahead and add the data
                         self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!, userEmail]])
-                        //add it to the user incidents
-                        self.db.collection("User Incidents").document(userEmail).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!, userEmail]])
                         //update everything in the incidents table
                         if let navController = self.navigationController{
                             self.callbackResult?(self.nameTextField.text!)
@@ -105,8 +103,6 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                 } else {
                     print("Document does not exist")
                     self.db.collection("Access Code Incidents").document(currentAccessCode).setData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!, userEmail]])
-                    //add it to user incidents
-                    self.db.collection("User Incidents").document(userEmail).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!, userEmail]])
                     //Send the incident name back
                     if let navController = self.navigationController{
                         self.callbackResult?(self.nameTextField.text!)

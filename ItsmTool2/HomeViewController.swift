@@ -144,7 +144,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     //once we find the userEmail then check if its an admin, if not then keep it
                     if(docData.key == userEmail) {
                         let fields = docData.value as! [String]
-                        if(fields[0] == "admin"){
+                        if(fields[0] == "Admin"){
                             isAdmin = true
                         }
                     }

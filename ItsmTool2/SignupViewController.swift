@@ -23,6 +23,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var accessCodeorCompanyNameField: UITextField!
     @IBOutlet weak var fullNameField: UITextField!
     let db = Firestore.firestore()
+    @IBOutlet weak var companyOrChannelNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,6 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         //set the fields original text to the "Employer"
         self.employerOrEmployeeField.text = pickerData[0]
         self.accessCodeLabel.isHidden = true
-        self.accessCodeorCompanyNameField.isHidden = true
     }
     
     //Signs the user up for the application
@@ -87,10 +87,10 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     if error == nil {
                         self.accessCodeExists(){ (accessCode) in
 //                         Adds the access Code to the the document and sets it data
-                           self.db.collection("Access Codes").document(accessCode).setData([self.email.text!: ["Admin", self.fullNameField.text!]])
+                            self.db.collection("Access Codes").document(accessCode).setData(["company name": self.accessCodeorCompanyNameField.text!, self.email.text!: ["Admin", self.fullNameField.text!]])
                            //add the user to the users
                            self.db.collection("users").document(self.email.text!).setData(["Full Name": self.fullNameField.text!, accessCode: "access code"])
-                            self.db.collection("User Incidents").document(self.email.text!)
+                            self.db.collection("User Incidents").document(self.email.text!).setData([:])
                             //let the user know that their stuff has been completed and give them their accessCode
                             let alertController = UIAlertController(title: "Your access code is " + accessCode, message: "Give those access codes to your employees or whoever you want to add to the server so they can join your server", preferredStyle: .alert)
                             let defaultAction = UIAlertAction(title: "Ok", style: .cancel
@@ -171,7 +171,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             ifEmployee()
         } else{
             self.accessCodeLabel.isHidden = true
-            self.accessCodeorCompanyNameField.isHidden = true
+            self.companyOrChannelNameLabel.isHidden = false
         }
     }
     
@@ -179,7 +179,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func ifEmployee(){
         //reveal these fields so the employee can input his or her access code given by the employer
         self.accessCodeLabel.isHidden = false
-        self.accessCodeorCompanyNameField.isHidden = false
+        self.companyOrChannelNameLabel.isHidden = true
     }
     
     //sends the email to the home view controller

@@ -14,23 +14,39 @@ class ChannelInfoViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     var tableData: [String] = []
     let db = Firestore.firestore()
+    @IBOutlet weak var channelSettingsButton: UIButton!
+    var picked: String = ""
+    var menuButton: UIBarButtonItem = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if self.revealViewController() != nil {
+            print("not nil")
+            menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            //set the leftBarButtonItem to the MenuButton
+            self.revealViewController().navigationItem.leftBarButtonItem = menuButton
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         tableView.delegate = self
         tableView.dataSource = self
         fillTableData()
+        if(!isAdmin){
+            channelSettingsButton.isHidden = true
+        }
     }
     
+    //fills the table with all the users
     func fillTableData() {
         let docRef = self.db.collection("Access Codes").document(currentAccessCode)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists{
                 let data = document.data()
                 for docData in data! {
-                    self.tableData.append(docData.key)
+                    if(docData.key != "company name"){
+                        self.tableData.append(docData.key)
+                    }
                 }
                 self.tableView.reloadData()
             } else {
@@ -44,6 +60,7 @@ class ChannelInfoViewController: UIViewController, UITableViewDelegate, UITableV
         return tableData.count
     }
     
+    //use the tableData as the source of table data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")
         let text = tableData[indexPath.row]
@@ -54,9 +71,16 @@ class ChannelInfoViewController: UIViewController, UITableViewDelegate, UITableV
     //Does whatever when the user clicks on a memeber of the table
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //if the user is an admin then they can see the user info and do what they want
-        if(isAdmin){
-            self.performSegue(withIdentifier: "goToUserInfo", sender: self)
+        picked = self.tableData[indexPath.row]
+        //show user info
+        self.performSegue(withIdentifier: "goToUserInfo", sender: self)
+    }
+    
+    //Send in the user email to the userInfoViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is UserInfoViewController {
+            let vc = segue.destination as? UserInfoViewController
+            vc?.email = picked
         }
     }
     

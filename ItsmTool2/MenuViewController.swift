@@ -34,13 +34,15 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell!
     }
     
-    
+    //keeps track of the last clicked and 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(self.tableData[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
-        if(self.tableData[indexPath.row] == "Incidents") {
+        if(self.tableData[indexPath.row] == "Incidents" && lastClickedMenu != "Incidents") {
+            lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToIncidents", sender: self)
-        } else if(self.tableData[indexPath.row] == "Home") {
+        } else if(self.tableData[indexPath.row] == "Home" && lastClickedMenu != "Home") {
+            lastClickedMenu = self.tableData[indexPath.row]
             let channelViewController = ChannelViewController();
             if channelViewController.viewIfLoaded?.window == nil {
                 // viewController is not visible
@@ -48,7 +50,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     navController.popViewController(animated: true)
                 }
             }
-        } else if(self.tableData[indexPath.row] == "Channel Info"){
+        } else if(self.tableData[indexPath.row] == "Channel Info" && lastClickedMenu != "Channel Info"){
+            lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToChannelInfo", sender: self)
         }
     }

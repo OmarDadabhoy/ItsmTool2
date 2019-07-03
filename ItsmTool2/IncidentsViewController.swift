@@ -174,11 +174,14 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
         fillTempArrays()
         tableData.removeAll()
         tableDataValues.removeAll()
-        self.db.collection("User Incidents").document(userEmail).getDocument { (document, error) in
+        self.db.collection("Access Code Incidents").document(currentAccessCode).getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
                 for dataDoc in data! {
-                    self.addTableDataBasedOfDate(dataDocKey: dataDoc.key, dataDocVal: dataDoc.value as! [String])
+                    let dataDocValue = dataDoc.value as! [String]
+                    if(dataDocValue[4] == userEmail || dataDocValue[5] == userEmail) {
+                        self.tableData.append(dataDoc.key)
+                    }
                 }
                 self.tableView.reloadData()
             } else {
@@ -219,6 +222,8 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
             tableDataValues.append(data)
         }
         self.tableView.reloadData()
+        tempTableData.removeAll()
+        tempTableDataValues.removeAll()
     }
     /*
     // MARK: - Navigation

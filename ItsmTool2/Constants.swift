@@ -12,3 +12,5 @@ var currentAccessCode: String = ""
 var userFullName: String = ""
 var userEmail: String = ""
 var isAdmin: Bool = false
+
+var lastClickedMenu: String = ""
