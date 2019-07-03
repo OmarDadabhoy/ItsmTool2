@@ -122,6 +122,11 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let vc = segue.destination as? ChannelViewController
             vc?.accessCode = self.groupPickerField.text!
         }
+        if segue.destination is AccountSettingsViewController {
+            let vc = segue.destination as? AccountSettingsViewController
+            vc?.email = self.email
+            vc?.fullName = self.fullName
+        }
     }
     
     //contains what is selected
@@ -154,6 +159,54 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.performSegue(withIdentifier: "goToChannel", sender: self)
     }
     
+    //gets the user to account settings
+    @IBAction func goToAccountSettings(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToAccountSettings", sender: self)
+    }
+    
+    //Allows the user to create a new channel and be the admin of it with a new access code
+    @IBAction func createNewChannel(_ sender: Any) {
+        let alertController = UIAlertController(title: "What is the channel/company Name?", message: nil, preferredStyle: .alert)
+        alertController.addTextField() { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter the name of the channel"
+        }
+        let saveAction = UIAlertAction(title: "Create Channel", style: .default, handler: { alert -> Void in
+            let textField = alertController.textFields![0] as UITextField
+            self.accessCodeExists() { (accessCode) in
+                //Adds the access Code to the the document and sets it data
+                self.db.collection("Access Codes").document(accessCode).setData(["company name": textField.text!, self.email: ["Admin", self.fullName]])
+                //add the user to the users
+                self.db.collection("users").document(self.email).updateData([accessCode: "access code"])
+                self.pickerData.append(accessCode)
+                //let the user know that their stuff has been completed and give them their accessCode
+                let alertController2 = UIAlertController(title: "Your access code is " + accessCode, message: "Give those access codes to your employees or whoever you want to add to the server so they can join your server", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Ok", style: .cancel
+                    , handler: nil)
+                alertController2.addAction(defaultAction)
+                self.present(alertController2, animated: true, completion: nil)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    //Checks to see if the access code already in the database
+    private func accessCodeExists(completionHandler: @escaping (String) -> ()) {
+        let accessCode = SignupViewController.randomString(length: 6)
+        let docRef = self.db.collection("Access Codes").document(accessCode)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.accessCodeExists() { (newAccessCode) in
+                    completionHandler(newAccessCode)
+                }
+            } else {
+                print("Document does not exist")
+                completionHandler(accessCode)
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

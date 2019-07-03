@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import Firebase
 
 var currentAccessCode: String = ""
 var userFullName: String = ""
 var userEmail: String = ""
 var isAdmin: Bool = false
 
-var lastClickedMenu: String = ""
+var lastClickedMenu: String = "Home"
+let db = Firestore.firestore()

@@ -59,7 +59,6 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                                 self.db.collection("Access Codes").document(accessCode).updateData([self.email.text!: ["Employee", self.fullNameField.text!]])
                                 //Add the user to the user database and the Auth should make sure this user is not previously registered
                                 self.db.collection("users").document(self.email.text!).setData(["Full Name": self.fullNameField.text!, accessCode: "access code"])
-                                self.db.collection("User Incidents").document(self.email.text!)
                                 //take them to home
                                 self.performSegue(withIdentifier: "signupToHome", sender: self)
                                 
@@ -90,7 +89,6 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                             self.db.collection("Access Codes").document(accessCode).setData(["company name": self.accessCodeorCompanyNameField.text!, self.email.text!: ["Admin", self.fullNameField.text!]])
                            //add the user to the users
                            self.db.collection("users").document(self.email.text!).setData(["Full Name": self.fullNameField.text!, accessCode: "access code"])
-                            self.db.collection("User Incidents").document(self.email.text!).setData([:])
                             //let the user know that their stuff has been completed and give them their accessCode
                             let alertController = UIAlertController(title: "Your access code is " + accessCode, message: "Give those access codes to your employees or whoever you want to add to the server so they can join your server", preferredStyle: .alert)
                             let defaultAction = UIAlertAction(title: "Ok", style: .cancel
@@ -114,7 +112,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     //Generates an access code and Checks to see if the Access Code is in the database already
     private func accessCodeExists(completionHandler: @escaping (String) -> ()) {
-        let accessCode = self.randomString(length: 6)
+        let accessCode = SignupViewController.randomString(length: 6)
         let docRef = self.db.collection("Access Codes").document(accessCode)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -140,7 +138,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     //This function randomly generates a string of a length in order to create the access code for the user
-    private func randomString(length: Int) -> String {
+    static func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
