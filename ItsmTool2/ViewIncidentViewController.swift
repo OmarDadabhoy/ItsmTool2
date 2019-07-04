@@ -17,7 +17,6 @@ class ViewIncidentViewController: UIViewController {
     @IBOutlet weak var creatorTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var urgencyTextField: UITextField!
-    @IBOutlet weak var Descirption: UITextField!
     @IBOutlet weak var resolver: UITextField!
     @IBOutlet weak var resolveIncidentButton: UIButton!
     @IBOutlet weak var closeIncidentButton: UIButton!
@@ -25,11 +24,14 @@ class ViewIncidentViewController: UIViewController {
     @IBOutlet weak var resolvedButton: UIButton!
     var callbackResult: ((String) -> ())?
     @IBOutlet weak var stopResolvingButton: UIButton!
+    @IBOutlet weak var descriptionField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.descriptionField.layer.borderWidth = 2.0
+        self.descriptionField.layer.borderColor = UIColor.gray.cgColor
         nameTextField.text = incidentName
         nameTextField.isUserInteractionEnabled = false
         self.stopResolvingButton.isHidden = true
@@ -39,7 +41,7 @@ class ViewIncidentViewController: UIViewController {
             self.creatorTextField.text = data[0]
             self.dateTextField.text = data[1]
             self.urgencyTextField.text = String(data[2].first!)
-            self.Descirption.text = data[3]
+            self.descriptionField.text = data[3]
             self.incidentEmail = data[4]
             if(data.count >= 6){
                 self.resolver.text = data[5]
@@ -54,7 +56,7 @@ class ViewIncidentViewController: UIViewController {
             self.creatorTextField.isUserInteractionEnabled = false
             self.dateTextField.isUserInteractionEnabled = false
             self.urgencyTextField.isUserInteractionEnabled = false
-            self.Descirption.isUserInteractionEnabled = false
+            self.descriptionField.isUserInteractionEnabled = false
             if(userEmail != self.incidentEmail && !isAdmin){
                 self.closeIncidentButton.isHidden = true
             }
@@ -81,7 +83,7 @@ class ViewIncidentViewController: UIViewController {
     //Lets the user say they are resolving the incident
     @IBAction func resolveIncident(_ sender: Any) {
         //set the resolver in firebase
-        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.Descirption.text!, incidentEmail, userEmail]])
+        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.descriptionField.text!, incidentEmail, userEmail]])
         //hide the button and make the Ui changes
         self.resolveIncidentButton.isHidden = true
         self.stopResolvingButton.isHidden = false
@@ -121,7 +123,7 @@ class ViewIncidentViewController: UIViewController {
     @IBAction func resolved(_ sender: Any) {
         self.resolvedButton.isHidden = true
         self.stopResolvingButton.isHidden = true
-        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.Descirption.text!, incidentEmail, userEmail, "resolved"]])
+        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.descriptionField.text!, incidentEmail, userEmail, "resolved"]])
     }
     
     //Lets a user drop the incident and stop resolving it
@@ -130,7 +132,7 @@ class ViewIncidentViewController: UIViewController {
         self.resolvedButton.isHidden = true
         self.resolveIncidentButton.isHidden = false
         self.resolver.text = ""
-        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.Descirption.text!, incidentEmail]])
+        self.db.collection("Access Code Incidents").document(currentAccessCode).updateData([self.nameTextField.text!: [self.creatorTextField.text!, self.dateTextField.text!, self.urgencyTextField.text!, self.descriptionField.text!, incidentEmail]])
         let alertController = UIAlertController(title: "You are no longer the resolver of this incident", message: "You are no longer the resolver of this incident ", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alertController.addAction(alertAction)

@@ -926,13 +926,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-fs-p22">
-                                <rect key="frame" x="18" y="328" width="380" height="211"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ap-GM-amt">
                                 <rect key="frame" x="16" y="129" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -984,15 +977,22 @@
                                     <action selector="stopResolvingIncident:" destination="ohG-RI-I3E" eventType="touchUpInside" id="aZW-nY-Brh"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qXQ-U0-fh5">
+                                <rect key="frame" x="16" y="328" width="378" height="221"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zTV-GK-6lT"/>
                     </view>
                     <connections>
-                        <outlet property="Descirption" destination="6a6-fs-p22" id="J5Y-Ng-11U"/>
                         <outlet property="closeIncidentButton" destination="erw-rN-Yrb" id="mMD-0n-ZF6"/>
                         <outlet property="creatorTextField" destination="oKw-8E-G9U" id="k9v-pv-9UK"/>
                         <outlet property="dateTextField" destination="Ztb-XA-NP3" id="u8o-zB-W5V"/>
+                        <outlet property="descriptionField" destination="qXQ-U0-fh5" id="hcF-bK-Ed8"/>
                         <outlet property="nameTextField" destination="cdA-FS-C1d" id="t6B-vd-f5d"/>
                         <outlet property="resolveIncidentButton" destination="zEK-F8-iLF" id="eLl-NA-pe1"/>
                         <outlet property="resolvedButton" destination="OLY-tr-eDp" id="YkW-TO-yQz"/>
@@ -1003,7 +1003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQR-aZ-z0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5326" y="2902"/>
+            <point key="canvasLocation" x="5324.6376811594209" y="2901.5625"/>
         </scene>
         <!--Create New Incident View Controller-->
         <scene sceneID="Pf0-OA-Awc">
