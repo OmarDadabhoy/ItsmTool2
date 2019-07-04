@@ -137,9 +137,12 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
             let destinationVC = segue.destination as! CreateNewIncidentViewController
             // Set any variable in ViewController2
             destinationVC.callbackResult = { result in
-                self.addTableDataBasedOfDate(dataDocKey: result, dataDocVal: [])
+                self.tableData.insert(result, at: 0)
                 // assign passing data etc..
                 self.tableView.reloadData()
+            }
+            destinationVC.callBackResultStringArray = { result in
+                self.tableDataValues.insert(result, at: 0)
             }
         }
         //if the user deletes a piece of data and send it back then go through and find it and remove it

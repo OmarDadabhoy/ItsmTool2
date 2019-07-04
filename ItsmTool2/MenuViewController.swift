@@ -41,7 +41,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if(self.tableData[indexPath.row] == "Incidents" && lastClickedMenu != "Incidents") {
             if(lastClickedMenu != "Home"){
                 if let navController = self.navigationController{
-                    navController.popViewController(animated: false)
+                    navController.popViewController(animated: true)
                 }
             }
             lastClickedMenu = self.tableData[indexPath.row]
@@ -58,7 +58,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if(self.tableData[indexPath.row] == "Channel Info" && lastClickedMenu != "Channel Info"){
             if(lastClickedMenu != "Home"){
                 if let navController = self.navigationController{
-                    navController.popViewController(animated: false)
+                    navController.popViewController(animated: true)
                 }
             }
             lastClickedMenu = self.tableData[indexPath.row]

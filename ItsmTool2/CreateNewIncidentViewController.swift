@@ -21,6 +21,7 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
     let pickerData: [String] = ["1 - Most Urgent", "2", "3", "4", "5 - Least Urgent"]
     let db = Firestore.firestore()
     var callbackResult: ((String) -> ())?
+    var callBackResultStringArray: (([String]) -> ())?
     
     
     override func viewDidLoad() {
@@ -96,6 +97,7 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                         //update everything in the incidents table
                         if let navController = self.navigationController{
                             self.callbackResult?(self.nameTextField.text!)
+                            self.callBackResultStringArray?([self.creatorTextField.text!, self.date.text!, self.urgencyTextField.text!, self.descriptionField.text!, userEmail])
                             navController.popViewController(animated: true)
                         }
                     }
