@@ -292,15 +292,15 @@
                         <viewLayoutGuide key="safeArea" id="EmM-aI-deP"/>
                     </view>
                     <navigationItem key="navigationItem" id="HXs-9e-YjW">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="lkd-1R-va5">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7FH-p7-hcr">
-                                <rect key="frame" x="20" y="7" width="124" height="30"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="iK6-Um-T3e">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ffj-ob-8Nl">
+                                <rect key="frame" x="51" y="388" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Join New Channel"/>
+                                <connections>
+                                    <action selector="joinNewChannel:" destination="ahw-DM-ZFq" eventType="touchUpInside" id="bO7-Cg-j3r"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="joinNewChannel:" destination="ahw-DM-ZFq" id="lJo-Eq-zMP"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="ZLF-QT-ywv">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CZG-Tl-A3X">
