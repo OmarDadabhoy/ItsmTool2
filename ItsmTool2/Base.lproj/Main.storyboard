@@ -1055,13 +1055,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zAB-Ey-pwb">
-                                <rect key="frame" x="14" y="363" width="380" height="211"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW8-dJ-QCy">
                                 <rect key="frame" x="11" y="44" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1099,6 +1092,13 @@
                                     <action selector="createIncident:" destination="n61-o7-C3S" eventType="touchUpInside" id="qIM-7B-65y"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MfZ-1M-UoR">
+                                <rect key="frame" x="12" y="344" width="382" height="303"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="i9E-oW-Ekb"/>
@@ -1106,7 +1106,7 @@
                     <connections>
                         <outlet property="creatorTextField" destination="5PB-qN-wEh" id="em4-me-DeA"/>
                         <outlet property="date" destination="CeH-rH-nCQ" id="LCK-oU-F15"/>
-                        <outlet property="descriptionField" destination="zAB-Ey-pwb" id="qlh-Jt-2cs"/>
+                        <outlet property="descriptionField" destination="MfZ-1M-UoR" id="pWC-Pn-cFB"/>
                         <outlet property="nameTextField" destination="3vf-lV-xht" id="YJb-Uy-Qh5"/>
                         <outlet property="urgencyTextField" destination="qda-cQ-ba1" id="ruT-YM-A8S"/>
                     </connections>

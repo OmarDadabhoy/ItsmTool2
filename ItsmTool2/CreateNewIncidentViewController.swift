@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import QuartzCore
+
 
 class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -16,18 +18,20 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
     @IBOutlet weak var creatorTextField: UITextField!
     @IBOutlet weak var date: UITextField!
     @IBOutlet weak var urgencyTextField: UITextField!
-    @IBOutlet weak var descriptionField: UITextField!
     var urgencyPicker = UIPickerView()
     let pickerData: [String] = ["1 - Most Urgent", "2", "3", "4", "5 - Least Urgent"]
     let db = Firestore.firestore()
     var callbackResult: ((String) -> ())?
     var callBackResultStringArray: (([String]) -> ())?
+    @IBOutlet weak var descriptionField: UITextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.descriptionField.layer.borderWidth = 2.0
+        self.descriptionField.layer.borderColor = UIColor.gray.cgColor
         urgencyPicker.delegate = self
         urgencyTextField.inputView = urgencyPicker
         urgencyTextField.text = pickerData[0]
