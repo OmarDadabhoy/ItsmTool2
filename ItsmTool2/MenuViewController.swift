@@ -39,6 +39,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print(self.tableData[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
         if(self.tableData[indexPath.row] == "Incidents" && lastClickedMenu != "Incidents") {
+            if(lastClickedMenu != "Home"){
+                if let navController = self.navigationController{
+                    navController.popViewController(animated: false)
+                }
+            }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToIncidents", sender: self)
         } else if(self.tableData[indexPath.row] == "Home" && lastClickedMenu != "Home") {
@@ -51,6 +56,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         } else if(self.tableData[indexPath.row] == "Channel Info" && lastClickedMenu != "Channel Info"){
+            if(lastClickedMenu != "Home"){
+                if let navController = self.navigationController{
+                    navController.popViewController(animated: false)
+                }
+            }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToChannelInfo", sender: self)
         }

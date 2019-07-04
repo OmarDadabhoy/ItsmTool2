@@ -26,6 +26,7 @@
 		22F2B7B122AB2BC1000EE7AB /* ItsmTool2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7B022AB2BC1000EE7AB /* ItsmTool2UITests.swift */; };
 		22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */; };
 		22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */; };
+		22F35FC822CD531D0087AC69 /* ChannelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F35FC722CD531D0087AC69 /* ChannelSettingsViewController.swift */; };
 		22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3632E22C1C62B00BC17AD /* MenuViewController.swift */; };
 		22F657D022BED1E8005F3C5C /* men.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F657CF22BED1E8005F3C5C /* men.png */; };
 		22FC0E4E22BDA4AB00151576 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0E4C22BDA4AB00151576 /* SWRevealViewController.m */; };
@@ -80,6 +81,7 @@
 		22F2B7B222AB2BC1000EE7AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F2B7BE22AB2E08000EE7AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22F2B7C022AB2E17000EE7AB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		22F35FC722CD531D0087AC69 /* ChannelSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSettingsViewController.swift; sourceTree = "<group>"; };
 		22F3632E22C1C62B00BC17AD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		22F657CF22BED1E8005F3C5C /* men.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = men.png; path = ../../../men.png; sourceTree = "<group>"; };
 		22FC0E4B22BDA4AA00151576 /* ItsmTool2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItsmTool2-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				22F1599622CB083700DC0DC9 /* ChannelInfoViewController.swift */,
 				22AE984422CBF35E00E256B7 /* UserInfoViewController.swift */,
 				22EF498922CC5363004A71EA /* AccountSettingsViewController.swift */,
+				22F35FC722CD531D0087AC69 /* ChannelSettingsViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				22EE045C22C4298500417493 /* IncidentsViewController.swift in Sources */,
 				229EFD4C22C5BCAF004B3C0E /* ViewIncidentViewController.swift in Sources */,
 				22ED0E6522C318C200ACAC2E /* Constants.swift in Sources */,
+				22F35FC822CD531D0087AC69 /* ChannelSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

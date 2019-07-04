@@ -437,9 +437,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4m-VS-vQd">
-                                <rect key="frame" x="277" y="44" width="117" height="30"/>
+                                <rect key="frame" x="277" y="86" width="117" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Channel Settings"/>
+                                <connections>
+                                    <action selector="goToChannelSettings:" destination="bhq-IS-wfA" eventType="touchUpInside" id="oYh-GI-gth"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -449,11 +452,77 @@
                         <outlet property="channelSettingsButton" destination="z4m-VS-vQd" id="r3f-va-bvP"/>
                         <outlet property="tableView" destination="Hhr-US-Wax" id="1TA-yP-1Pt"/>
                         <segue destination="XaY-1K-BMl" kind="show" identifier="goToUserInfo" id="8Gq-fl-Ber"/>
+                        <segue destination="vt2-Op-qqN" kind="show" identifier="goToChannelSettings" id="8hu-8T-VBM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7c0-Bm-tfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3147.826086956522" y="2901.5625"/>
+        </scene>
+        <!--Channel Settings View Controller-->
+        <scene sceneID="UMw-Nv-0U4">
+            <objects>
+                <viewController id="vt2-Op-qqN" customClass="ChannelSettingsViewController" customModule="ItsmTool2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jFg-7s-Lfh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bg-Cw-9DU">
+                                <rect key="frame" x="115" y="698" width="185" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Request New Access Code"/>
+                                <connections>
+                                    <action selector="requestNewAccesscode:" destination="vt2-Op-qqN" eventType="touchUpInside" id="FpW-5w-hTf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twe-op-xhh">
+                                <rect key="frame" x="173" y="736" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Data"/>
+                                <connections>
+                                    <action selector="saveData:" destination="vt2-Op-qqN" eventType="touchUpInside" id="Whv-Bo-Aok"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Access Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIB-FA-dYN">
+                                <rect key="frame" x="20" y="105" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Nz-eD-X8B">
+                                <rect key="frame" x="20" y="134" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Channel name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vt3-VZ-PQ8">
+                                <rect key="frame" x="20" y="172" width="110" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tpz-aN-6Tx">
+                                <rect key="frame" x="20" y="201" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Gnx-gg-mad"/>
+                    </view>
+                    <connections>
+                        <outlet property="accessCodeField" destination="8Nz-eD-X8B" id="dvV-M4-Ccw"/>
+                        <outlet property="channelNameField" destination="Tpz-aN-6Tx" id="vWN-dB-2Ro"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dM4-ZU-N0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3997.1014492753625" y="2901.5625"/>
         </scene>
         <!--User Info View Controller-->
         <scene sceneID="GeL-WK-aZR">
@@ -934,7 +1003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQR-aZ-z0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4431.884057971015" y="2929.6875"/>
+            <point key="canvasLocation" x="5326" y="2902"/>
         </scene>
         <!--Create New Incident View Controller-->
         <scene sceneID="Pf0-OA-Awc">

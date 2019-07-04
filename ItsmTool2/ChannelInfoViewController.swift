@@ -84,7 +84,10 @@ class ChannelInfoViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-
+    @IBAction func goToChannelSettings(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToChannelSettings", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 
