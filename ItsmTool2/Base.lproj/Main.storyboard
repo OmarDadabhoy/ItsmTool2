@@ -294,7 +294,7 @@
                     <navigationItem key="navigationItem" id="HXs-9e-YjW">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="iK6-Um-T3e">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ffj-ob-8Nl">
-                                <rect key="frame" x="51" y="388" width="124" height="30"/>
+                                <rect key="frame" x="20" y="7" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Join New Channel"/>
                                 <connections>
