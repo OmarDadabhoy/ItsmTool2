@@ -57,6 +57,7 @@ class ViewIncidentViewController: UIViewController {
             self.dateTextField.isUserInteractionEnabled = false
             self.urgencyTextField.isUserInteractionEnabled = false
             self.descriptionField.isUserInteractionEnabled = false
+            self.resolver.isUserInteractionEnabled = false
             if(userEmail != self.incidentEmail && !isAdmin){
                 self.closeIncidentButton.isHidden = true
             }

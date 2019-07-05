@@ -12,7 +12,7 @@ import FirebaseDatabase
 import QuartzCore
 
 
-class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var creatorTextField: UITextField!
@@ -30,6 +30,10 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        nameTextField.delegate = self
+        creatorTextField.delegate = self
+        urgencyTextField.delegate = self
+        date.delegate = self
         self.descriptionField.layer.borderWidth = 2.0
         self.descriptionField.layer.borderColor = UIColor.gray.cgColor
         urgencyPicker.delegate = self
@@ -117,6 +121,12 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
                 }
             }
         }
+    }
+    
+    //allows the user to exit with return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     /*
     // MARK: - Navigation

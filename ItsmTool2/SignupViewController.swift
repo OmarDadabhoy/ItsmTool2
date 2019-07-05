@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -35,6 +35,12 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         //set the fields original text to the "Employer"
         self.employerOrEmployeeField.text = pickerData[0]
         self.accessCodeLabel.isHidden = true
+        email.delegate = self
+        password.delegate = self
+        retypePassword.delegate = self
+        employerOrEmployeeField.delegate = self
+        accessCodeorCompanyNameField.delegate = self
+        fullNameField.delegate = self
     }
     
     //Signs the user up for the application
@@ -186,6 +192,12 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             let vc = segue.destination as? HomeViewController
             vc?.email = self.email.text!
         }
+    }
+    
+    //disables the keyboard after hitting return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     /*
