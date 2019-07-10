@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ChannelSettingsViewController: UIViewController {
+class ChannelSettingsViewController: UIViewController, UITextFieldDelegate {
 
     var channelName: String = ""
     @IBOutlet weak var accessCodeField: UITextField!
@@ -22,6 +22,7 @@ class ChannelSettingsViewController: UIViewController {
         accessCodeField.text = currentAccessCode
         accessCodeField.isUserInteractionEnabled = false
         getChannelName()
+        channelNameField.delegate = self
     }
     
     //returns the string channel name of the access code
@@ -117,6 +118,12 @@ class ChannelSettingsViewController: UIViewController {
                 completionHandler(accessCode)
             }
         }
+    }
+    
+    //disables the keyboard after hitting return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     /*
     // MARK: - Navigation
