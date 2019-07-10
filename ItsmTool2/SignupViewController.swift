@@ -24,6 +24,8 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var fullNameField: UITextField!
     let db = Firestore.firestore()
     @IBOutlet weak var companyOrChannelNameLabel: UILabel!
+    let toolBar = UIToolbar()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,20 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         employerOrEmployeeField.delegate = self
         accessCodeorCompanyNameField.delegate = self
         fullNameField.delegate = self
+        
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        self.employerOrEmployeeField.inputAccessoryView = toolBar
+    }
+    
+    @objc func donePicker(){
+        self.employerOrEmployeeField.resignFirstResponder()
     }
     
     //Signs the user up for the application
@@ -200,6 +216,13 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return false
     }
     
+    //sees where the user touched
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let position = touch.location(in: employerOrEmployee)
+            print(position)
+        }
+    }
     /*
     // MARK: - Navigation
 

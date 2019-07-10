@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var pickerData: [String] = []
     @IBOutlet weak var groupPickerField: UITextField!
     var groupPicker = UIPickerView()
+    var toolBar = UIToolbar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,20 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.groupPicker.delegate = self
         self.groupPickerField.inputView = groupPicker
         fillPickerData()
+        
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        self.groupPickerField.inputAccessoryView = toolBar
+    }
+    
+    @objc func donePicker(){
+        self.groupPickerField.resignFirstResponder()
     }
     
     //Fills the picker data with all the access codes the user is affiliated with 
