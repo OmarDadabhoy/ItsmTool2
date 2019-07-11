@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     var viewController: ViewController?
+    var keyboardSize: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         email.delegate = self
         password.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     //signs the user into the app
@@ -64,6 +66,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
+    
+    //Do this when the password field is clicked
+    @IBAction func passwordFieldClicked(_ sender: Any) {
+        print(self.keyboardSize)
+        if self.view.frame.origin.y == 0 && keyboardSize != 0 {
+            self.view.frame.origin.y -= self.keyboardSize - 100
+        }
+    }
+    
+    //Do this when exiting the password field
+    @IBAction func exitPasswordField(_ sender: Any) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    //sets up the keyboard size when the keyboard comes up
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
+            if(self.keyboardSize == 0){
+                 self.keyboardSize = keyboardSize.height
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

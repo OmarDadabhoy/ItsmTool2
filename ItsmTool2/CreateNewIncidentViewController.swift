@@ -128,6 +128,7 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
         self.view.endEditing(true)
         return false
     }
+    
     /*
     // MARK: - Navigation
 

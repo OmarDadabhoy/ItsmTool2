@@ -25,6 +25,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     let db = Firestore.firestore()
     @IBOutlet weak var companyOrChannelNameLabel: UILabel!
     let toolBar = UIToolbar()
+    var keyboardSize: CGFloat = 0
     
     
     override func viewDidLoad() {
@@ -44,6 +45,7 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         accessCodeorCompanyNameField.delegate = self
         fullNameField.delegate = self
         
+        //sets up the toolbar for the picker
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         toolBar.sizeToFit()
@@ -53,6 +55,9 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         self.employerOrEmployeeField.inputAccessoryView = toolBar
+        
+        //sets up the variable size for the pop up
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     @objc func donePicker(){
@@ -221,6 +226,43 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if let touch = touches.first {
             let position = touch.location(in: employerOrEmployee)
             print(position)
+        }
+    }
+    
+    //pop view up when full name is clicked
+    @IBAction func clickFullName(_ sender: Any) {
+        if self.view.frame.origin.y == 0 && keyboardSize != 0 {
+            self.view.frame.origin.y -= self.keyboardSize - 100
+        }
+    }
+    
+    //pop view down when full name is exited
+    @IBAction func fullNameEnd(_ sender: Any) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    //pop up the view when employer name is clikced
+    @IBAction func employerNameClicked(_ sender: Any) {
+        if self.view.frame.origin.y == 0 && keyboardSize != 0 {
+            self.view.frame.origin.y -= self.keyboardSize - 100
+        }
+    }
+    
+    //pop the view down when the they exit the employer name
+    @IBAction func employerNameExit(_ sender: Any) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    //sets up the keyboard size when the keyboard comes up
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
+            if(self.keyboardSize == 0){
+                self.keyboardSize = keyboardSize.height
+            }
         }
     }
     /*
