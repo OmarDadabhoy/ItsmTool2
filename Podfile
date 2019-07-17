@@ -8,6 +8,7 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Firestore'
+pod 'Firebase/Messaging'
 
   # Pods for ItsmTool2
 

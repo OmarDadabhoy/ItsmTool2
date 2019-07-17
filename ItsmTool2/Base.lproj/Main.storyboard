@@ -410,7 +410,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYd-GJ-Wb5">
-                                <rect key="frame" x="122" y="190" width="170" height="30"/>
+                                <rect key="frame" x="224" y="84" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Return to Channel Picker"/>
                                 <connections>
@@ -1262,7 +1262,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="u1K-mi-S74"/>
+        <segue reference="DzG-6s-kiE"/>
         <segue reference="4Ci-ie-vtd"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,7 @@ class ChannelViewController: UIViewController {
 
     var accessCode: String = ""
     var menuButton: UIBarButtonItem = UIBarButtonItem()
+    var backToHomeButton: UIBarButtonItem = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,10 @@ class ChannelViewController: UIViewController {
             print("not nil")
             menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
 //            menuButton = UIBarButtonItem.init(image: , style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            backToHomeButton = UIBarButtonItem.init(title: "Go Back to Channel Picker", style: .plain, target: self, action: #selector(backToHome))
             //set the leftBarButtonItem to the MenuButton
             self.revealViewController().navigationItem.leftBarButtonItem = menuButton
+            self.revealViewController()?.navigationItem.rightBarButtonItem = backToHomeButton
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
@@ -41,6 +44,12 @@ class ChannelViewController: UIViewController {
 //        }else {
 //            print("Tapped inside the view")
 //        }
+    }
+    
+    @objc func backToHome() {
+        if let navController = self.navigationController{
+            navController.popViewController(animated: true)
+        }
     }
     
     @IBAction func goBackToHome(_ sender: Any) {

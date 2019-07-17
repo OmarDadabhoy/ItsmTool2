@@ -61,6 +61,7 @@
 		229EFD4B22C5BCAF004B3C0E /* ViewIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIncidentViewController.swift; sourceTree = "<group>"; };
 		22AE984422CBF35E00E256B7 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		22ED0E6422C318C200ACAC2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		22ED3CF922DE8A9400AF7DE9 /* ItsmTool2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ItsmTool2.entitlements; sourceTree = "<group>"; };
 		22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		22EE045B22C4298500417493 /* IncidentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentsViewController.swift; sourceTree = "<group>"; };
 		22EEBADD22C458E2005A7CE1 /* CreateNewIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewIncidentViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		22F2B78F22AB2BC0000EE7AB /* ItsmTool2 */ = {
 			isa = PBXGroup;
 			children = (
+				22ED3CF922DE8A9400AF7DE9 /* ItsmTool2.entitlements */,
 				22F657CC22BED072005F3C5C /* New Group */,
 				22FC0E4A22BDA42500151576 /* SWRevealViewController */,
 				22F2B79022AB2BC0000EE7AB /* AppDelegate.swift */,
@@ -306,6 +308,11 @@
 					22F2B78C22AB2BC0000EE7AB = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					22F2B7A022AB2BC1000EE7AB = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -649,6 +656,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ItsmTool2/ItsmTool2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QRLWKBGJT7;
 				INFOPLIST_FILE = ItsmTool2/Info.plist;
@@ -672,6 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ItsmTool2/ItsmTool2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QRLWKBGJT7;
 				INFOPLIST_FILE = ItsmTool2/Info.plist;

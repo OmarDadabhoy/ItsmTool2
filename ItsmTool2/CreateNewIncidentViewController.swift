@@ -12,7 +12,7 @@ import FirebaseDatabase
 import QuartzCore
 
 
-class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var creatorTextField: UITextField!
@@ -24,12 +24,15 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
     var callbackResult: ((String) -> ())?
     var callBackResultStringArray: (([String]) -> ())?
     @IBOutlet weak var descriptionField: UITextView!
+    let toolBar = UIToolbar()
+    var keyboardSize: CGFloat = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        descriptionField.delegate = self
         nameTextField.delegate = self
         creatorTextField.delegate = self
         urgencyTextField.delegate = self
@@ -49,6 +52,58 @@ class CreateNewIncidentViewController: UIViewController, UIPickerViewDelegate, U
         date.text = formattedDate
         date.isUserInteractionEnabled = false
         print(nameTextField.text! + "test")
+        //set up the toolbar for the picker
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        self.urgencyTextField.inputAccessoryView = toolBar
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    //will pop the view up when the description field is hit
+    func textViewDidBeginEditing(_ textView: UITextView){
+        if self.view.frame.origin.y == 0 && keyboardSize != 0 {
+            self.view.frame.origin.y -= self.keyboardSize
+        }
+    }
+    
+    //sets up the keyboard size when the keyboard comes up
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
+            if(self.keyboardSize == 0){
+                self.keyboardSize = keyboardSize.height
+            }
+        }
+    }
+    
+    //hides the view when the keyboard is gone
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    
+    //when the user clicks done in the toolbar the picker will exit
+    @objc func donePicker(){
+        self.urgencyTextField.resignFirstResponder()
+    }
+    
+    //dismisses the text view when return it hit
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     //Cancels and goes back to the incidents

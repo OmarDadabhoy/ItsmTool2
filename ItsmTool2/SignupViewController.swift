@@ -116,6 +116,10 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                             self.db.collection("Access Codes").document(accessCode).setData(["company name": self.accessCodeorCompanyNameField.text!, self.email.text!: ["Admin", self.fullNameField.text!]])
                            //add the user to the users
                            self.db.collection("users").document(self.email.text!).setData(["Full Name": self.fullNameField.text!, accessCode: "access code"])
+                            //subscribe them to their own topic so that they can recieve notifcations
+                            Messaging.messaging().subscribe(toTopic: self.email.text!) { error in
+                                print("Subscribed to user topic")
+                            }
                             //let the user know that their stuff has been completed and give them their accessCode
                             let alertController = UIAlertController(title: "Your access code is " + accessCode, message: "Give those access codes to your employees or whoever you want to add to the server so they can join your server", preferredStyle: .alert)
                             let defaultAction = UIAlertAction(title: "Ok", style: .cancel
