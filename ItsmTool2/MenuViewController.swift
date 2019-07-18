@@ -11,7 +11,7 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var tableData: [String] = ["Home", "Incidents", "Channel Info"]
+    var tableData: [String] = ["Home", "Incidents", "Channel Info", "Changes"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,11 +63,17 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToChannelInfo", sender: self)
+        } else if(self.tableData[indexPath.row] == "Changes" && lastClickedMenu != "Changes"){
+            if(lastClickedMenu != "Home"){
+                if let navController = self.navigationController{
+                    navController.popViewController(animated: true)
+                }
+            }
+            lastClickedMenu = self.tableData[indexPath.row]
+            self.performSegue(withIdentifier: "goToChanges", sender: self)
         }
     }
     
-    
-
     /*
     // MARK: - Navigation
 

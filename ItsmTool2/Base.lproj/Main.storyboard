@@ -409,14 +409,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYd-GJ-Wb5">
-                                <rect key="frame" x="224" y="84" width="170" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incidents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjx-ym-md1">
+                                <rect key="frame" x="20" y="79" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Return to Channel Picker"/>
-                                <connections>
-                                    <action selector="goBackToHome:" destination="m2p-Is-8Yf" eventType="touchUpInside" id="g7X-XZ-W0G"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sGk-9k-Rfx"/>
@@ -795,6 +794,40 @@
             </objects>
             <point key="canvasLocation" x="2248" y="1422"/>
         </scene>
+        <!--Changes View Controller-->
+        <scene sceneID="OLh-3N-0Rx">
+            <objects>
+                <viewController id="XLc-Qt-3YF" customClass="ChangesViewController" customModule="ItsmTool2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BNH-7z-iaD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SYq-ya-dao"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvb-A7-JW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-56" y="2168"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="lWP-Q6-dgD">
+            <objects>
+                <viewController id="R6N-QL-jop" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8wu-rY-Bwl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9yI-iP-Da5"/>
+                    </view>
+                    <connections>
+                        <segue destination="z2j-6g-QUt" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="6f4-4s-eFC"/>
+                        <segue destination="XLc-Qt-3YF" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="sXd-FH-n87"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMX-pW-GTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950" y="2172"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="bIO-lX-8hl">
             <objects>
@@ -835,6 +868,7 @@
                         <outlet property="tableView" destination="ZAo-Y2-PtD" id="1KD-3R-wQb"/>
                         <segue destination="KzJ-Ng-hyZ" kind="show" identifier="goToIncidents" id="ksy-4g-NQM"/>
                         <segue destination="Hzh-Rt-yQ0" kind="show" identifier="goToChannelInfo" id="koN-fw-RaO"/>
+                        <segue destination="R6N-QL-jop" kind="show" identifier="goToChanges" id="qVo-Ge-AQB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXe-z4-L0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1262,7 +1296,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DzG-6s-kiE"/>
+        <segue reference="u1K-mi-S74"/>
         <segue reference="4Ci-ie-vtd"/>
     </inferredMetricsTieBreakers>
 </document>
