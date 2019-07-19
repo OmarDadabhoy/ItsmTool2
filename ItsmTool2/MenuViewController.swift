@@ -11,7 +11,7 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var tableData: [String] = ["Home", "Incidents", "Channel Info", "Changes"]
+    var tableData: [String] = ["Home", "Incidents", "Channel Info", "Changes", "Go Back To Channel Picker"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +48,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.performSegue(withIdentifier: "goToIncidents", sender: self)
         } else if(self.tableData[indexPath.row] == "Home" && lastClickedMenu != "Home") {
             lastClickedMenu = self.tableData[indexPath.row]
-            let channelViewController = ChannelViewController();
-            if channelViewController.viewIfLoaded?.window == nil {
-                // viewController is not visible
-                if let navController = self.navigationController{
-                    navController.popViewController(animated: true)
-                }
-            }
+            self.performSegue(withIdentifier: "goBackHome", sender: self)
         } else if(self.tableData[indexPath.row] == "Channel Info" && lastClickedMenu != "Channel Info"){
 //            if(lastClickedMenu != "Home"){
 //                if let navController = self.navigationController{
@@ -71,6 +65,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToChanges", sender: self)
+        } else if(self.tableData[indexPath.row] == "Go Back To Channel Picker"){
+            if let navController = self.navigationController{
+                navController.popViewController(animated: true)
+            }
         }
     }
     
