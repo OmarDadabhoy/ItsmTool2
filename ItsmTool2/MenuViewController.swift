@@ -38,7 +38,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(self.tableData[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
-        if(self.tableData[indexPath.row] == "Incidents" && lastClickedMenu != "Incidents") {
+        if(self.tableData[indexPath.row] == "Incidents") {
 //            if(lastClickedMenu != "Home"){
 //                if let navController = self.navigationController{
 //                    navController.popViewController(animated: true)
@@ -46,10 +46,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToIncidents", sender: self)
-        } else if(self.tableData[indexPath.row] == "Home" && lastClickedMenu != "Home") {
+        } else if(self.tableData[indexPath.row] == "Home") {
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goBackHome", sender: self)
-        } else if(self.tableData[indexPath.row] == "Channel Info" && lastClickedMenu != "Channel Info"){
+        } else if(self.tableData[indexPath.row] == "Channel Info"){
 //            if(lastClickedMenu != "Home"){
 //                if let navController = self.navigationController{
 //                    navController.popViewController(animated: true)
@@ -57,7 +57,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToChannelInfo", sender: self)
-        } else if(self.tableData[indexPath.row] == "Changes" && lastClickedMenu != "Changes"){
+        } else if(self.tableData[indexPath.row] == "Changes"){
 //            if(lastClickedMenu != "Home"){
 //                if let navController = self.navigationController{
 //                    navController.popViewController(animated: true)

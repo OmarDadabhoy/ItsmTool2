@@ -26,7 +26,11 @@ class ChangesViewController: UIViewController {
         }
     }
     
-
+    //allows the user to create a new change
+    @IBAction func createNewChange(_ sender: Any) {
+        self.performSegue(withIdentifier: "createNewChange", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -15,6 +15,7 @@
 		22ED0E6522C318C200ACAC2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ED0E6422C318C200ACAC2E /* Constants.swift */; };
 		22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */; };
 		22EE045C22C4298500417493 /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EE045B22C4298500417493 /* IncidentsViewController.swift */; };
+		22EE9E7322E2659200EF4DD6 /* CreateNewChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EE9E7222E2659200EF4DD6 /* CreateNewChangeViewController.swift */; };
 		22EEBADE22C458E2005A7CE1 /* CreateNewIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EEBADD22C458E2005A7CE1 /* CreateNewIncidentViewController.swift */; };
 		22EF498A22CC5363004A71EA /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF498922CC5363004A71EA /* AccountSettingsViewController.swift */; };
 		22F1599722CB083700DC0DC9 /* ChannelInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1599622CB083700DC0DC9 /* ChannelInfoViewController.swift */; };
@@ -66,6 +67,7 @@
 		22ED3CF922DE8A9400AF7DE9 /* ItsmTool2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ItsmTool2.entitlements; sourceTree = "<group>"; };
 		22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		22EE045B22C4298500417493 /* IncidentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentsViewController.swift; sourceTree = "<group>"; };
+		22EE9E7222E2659200EF4DD6 /* CreateNewChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewChangeViewController.swift; sourceTree = "<group>"; };
 		22EEBADD22C458E2005A7CE1 /* CreateNewIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewIncidentViewController.swift; sourceTree = "<group>"; };
 		22EF498922CC5363004A71EA /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		22F1599622CB083700DC0DC9 /* ChannelInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelInfoViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				22EF498922CC5363004A71EA /* AccountSettingsViewController.swift */,
 				22F35FC722CD531D0087AC69 /* ChannelSettingsViewController.swift */,
 				224B984E22E1144900CEAE2C /* ChangesViewController.swift */,
+				22EE9E7222E2659200EF4DD6 /* CreateNewChangeViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */,
 				22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */,
 				22EEBADE22C458E2005A7CE1 /* CreateNewIncidentViewController.swift in Sources */,
+				22EE9E7322E2659200EF4DD6 /* CreateNewChangeViewController.swift in Sources */,
 				22EE045C22C4298500417493 /* IncidentsViewController.swift in Sources */,
 				229EFD4C22C5BCAF004B3C0E /* ViewIncidentViewController.swift in Sources */,
 				22ED0E6522C318C200ACAC2E /* Constants.swift in Sources */,
