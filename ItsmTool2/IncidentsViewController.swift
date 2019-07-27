@@ -21,6 +21,7 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
     var tempTableDataValues: [Any] = []
     @IBOutlet weak var seeOnlyYourIncidentsButton: UIButton!
     @IBOutlet weak var viewAllIncidentsButton: UIButton!
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +39,26 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
             self.revealViewController().navigationItem.leftBarButtonItem = menuButton
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        refreshControl.addTarget(self, action: #selector(self.handleTopRefresh(_:)), for: .valueChanged )
+        // if ios is availble enable refresh control
+        if #available(iOS 10.0, *) {
+            self.tableView.refreshControl = refreshControl
+        } else {
+            
+            self.tableView.addSubview(refreshControl)
+            // creating the ui refreshcontrol object
+        }
+    }
+    
+    // Configure Refresh Control
+    @objc func handleTopRefresh(_ sender:UIRefreshControl){
+        self.fillTableData()
     }
     
     //Fills the table with the incidents
     func fillTableData(){
+        tableData.removeAll()
+        tableDataValues.removeAll()
         print(currentAccessCode)
         let docRef = db.collection("Access Code Incidents").document(currentAccessCode)
         docRef.getDocument { (document, error) in
@@ -56,6 +73,7 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
                 }
                 print(self.tableData)
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             } else {
                 print("Document does not exist")
             }

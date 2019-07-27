@@ -11,7 +11,7 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var tableData: [String] = ["Home", "Incidents", "Channel Info", "Changes", "Go Back To Channel Picker"]
+    var tableData: [String] = ["Home", "Incidents", "Channel Info", "Changes", "Employee Designation", "Go Back To Channel Picker"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,35 +39,26 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print(self.tableData[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
         if(self.tableData[indexPath.row] == "Incidents") {
-//            if(lastClickedMenu != "Home"){
-//                if let navController = self.navigationController{
-//                    navController.popViewController(animated: true)
-//                }
-//            }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToIncidents", sender: self)
         } else if(self.tableData[indexPath.row] == "Home") {
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goBackHome", sender: self)
         } else if(self.tableData[indexPath.row] == "Channel Info"){
-//            if(lastClickedMenu != "Home"){
-//                if let navController = self.navigationController{
-//                    navController.popViewController(animated: true)
-//                }
-//            }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToChannelInfo", sender: self)
         } else if(self.tableData[indexPath.row] == "Changes"){
-//            if(lastClickedMenu != "Home"){
-//                if let navController = self.navigationController{
-//                    navController.popViewController(animated: true)
-//                }
-//            }
             lastClickedMenu = self.tableData[indexPath.row]
             self.performSegue(withIdentifier: "goToChanges", sender: self)
         } else if(self.tableData[indexPath.row] == "Go Back To Channel Picker"){
             if let navController = self.navigationController{
                 navController.popViewController(animated: true)
+            }
+        } else if(self.tableData[indexPath.row] == "Employee Designation") {
+            if(isAdmin){
+                self.performSegue(withIdentifier: "goToEmployeeDesignation", sender: self)
+            } else {
+                self.performSegue(withIdentifier: "goToEmployeeDesignation2", sender: self)
             }
         }
     }

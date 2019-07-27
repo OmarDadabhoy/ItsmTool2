@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.groupPickerField.inputAccessoryView = toolBar
     }
     
+    //resign the picker
     @objc func donePicker(){
         self.groupPickerField.resignFirstResponder()
     }

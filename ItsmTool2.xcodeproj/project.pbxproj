@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2247DC1322EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247DC1222EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift */; };
+		2247DC1522EBF04D00DD5568 /* EmployeeDesignationEmployerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247DC1422EBF04D00DD5568 /* EmployeeDesignationEmployerViewController.swift */; };
 		224B984F22E1144900CEAE2C /* ChangesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B984E22E1144900CEAE2C /* ChangesViewController.swift */; };
 		226A6EA522C2DEF900FA9255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 226A6EA422C2DEF900FA9255 /* GoogleService-Info.plist */; };
 		226A6EA722C2E73F00FA9255 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6EA622C2E73F00FA9255 /* HomeViewController.swift */; };
+		228F844022E92543008BA5F1 /* ViewChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F843F22E92543008BA5F1 /* ViewChangeViewController.swift */; };
 		229EFD4C22C5BCAF004B3C0E /* ViewIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EFD4B22C5BCAF004B3C0E /* ViewIncidentViewController.swift */; };
 		22AE984522CBF35E00E256B7 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE984422CBF35E00E256B7 /* UserInfoViewController.swift */; };
 		22ED0E6522C318C200ACAC2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ED0E6422C318C200ACAC2E /* Constants.swift */; };
@@ -58,9 +61,12 @@
 		00AE1D5D9FF4ECDBFB33D794 /* Pods-ItsmTool2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2Tests.debug.xcconfig"; path = "Target Support Files/Pods-ItsmTool2Tests/Pods-ItsmTool2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1470E74F41D69ED600EB9DDA /* Pods_ItsmTool2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsmTool2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21910222386D8F4AFC869B59 /* Pods_ItsmTool2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsmTool2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2247DC1222EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDesignationEmployeeViewController.swift; sourceTree = "<group>"; };
+		2247DC1422EBF04D00DD5568 /* EmployeeDesignationEmployerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDesignationEmployerViewController.swift; sourceTree = "<group>"; };
 		224B984E22E1144900CEAE2C /* ChangesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesViewController.swift; sourceTree = "<group>"; };
 		226A6EA422C2DEF900FA9255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		226A6EA622C2E73F00FA9255 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		228F843F22E92543008BA5F1 /* ViewChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChangeViewController.swift; sourceTree = "<group>"; };
 		229EFD4B22C5BCAF004B3C0E /* ViewIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIncidentViewController.swift; sourceTree = "<group>"; };
 		22AE984422CBF35E00E256B7 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		22ED0E6422C318C200ACAC2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -188,6 +194,9 @@
 				22F35FC722CD531D0087AC69 /* ChannelSettingsViewController.swift */,
 				224B984E22E1144900CEAE2C /* ChangesViewController.swift */,
 				22EE9E7222E2659200EF4DD6 /* CreateNewChangeViewController.swift */,
+				228F843F22E92543008BA5F1 /* ViewChangeViewController.swift */,
+				2247DC1222EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift */,
+				2247DC1422EBF04D00DD5568 /* EmployeeDesignationEmployerViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -472,6 +481,7 @@
 			files = (
 				22F1599722CB083700DC0DC9 /* ChannelInfoViewController.swift in Sources */,
 				22AE984522CBF35E00E256B7 /* UserInfoViewController.swift in Sources */,
+				2247DC1522EBF04D00DD5568 /* EmployeeDesignationEmployerViewController.swift in Sources */,
 				22EF498A22CC5363004A71EA /* AccountSettingsViewController.swift in Sources */,
 				22FC0E4E22BDA4AB00151576 /* SWRevealViewController.m in Sources */,
 				22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */,
@@ -480,9 +490,11 @@
 				226A6EA722C2E73F00FA9255 /* HomeViewController.swift in Sources */,
 				22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */,
 				224B984F22E1144900CEAE2C /* ChangesViewController.swift in Sources */,
+				2247DC1322EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift in Sources */,
 				22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */,
 				22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */,
 				22EEBADE22C458E2005A7CE1 /* CreateNewIncidentViewController.swift in Sources */,
+				228F844022E92543008BA5F1 /* ViewChangeViewController.swift in Sources */,
 				22EE9E7322E2659200EF4DD6 /* CreateNewChangeViewController.swift in Sources */,
 				22EE045C22C4298500417493 /* IncidentsViewController.swift in Sources */,
 				229EFD4C22C5BCAF004B3C0E /* ViewIncidentViewController.swift in Sources */,

@@ -30,6 +30,9 @@ class CreateNewChangeViewController: UIViewController, UIPickerViewDelegate, UIP
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var endDateField: UITextField!
     var startDatePicker = UIDatePicker()
+    var endDatePicker = UIDatePicker()
+    var toolBar = UIToolbar()
+    var fields: [UITextField] = []
     
     
     override func viewDidLoad() {
@@ -58,11 +61,47 @@ class CreateNewChangeViewController: UIViewController, UIPickerViewDelegate, UIP
         changeRiskField.inputView = changeRiskPicker
         changeImpactField.inputView = changeImpactPicker
         dateField.inputView = startDatePicker
+        endDateField.inputView = endDatePicker
+        
+        changeTypeField.inputAccessoryView = toolBar
+        changePriorityField.inputAccessoryView = toolBar
+        changeRiskField.inputAccessoryView = toolBar
+        changeImpactField.inputAccessoryView = toolBar
+        dateField.inputAccessoryView = toolBar
+        endDateField.inputAccessoryView = toolBar
+        fields = [changeTypeField, changePriorityField, changeRiskField, changeImpactField, dateField, endDateField]
         
         //date picker
         startDatePicker.datePickerMode = .date
         startDatePicker.addTarget(self, action: #selector(self.dateChanged(datePicker:)), for: .valueChanged)
+        endDatePicker.datePickerMode = .date
+        endDatePicker.addTarget(self, action: #selector(self.endDateChanged(datePicker:)), for: .valueChanged)
         
+        
+        //tool bar
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePicker))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+    }
+    
+    
+    @objc func donePicker(){
+        for field in fields {
+            field.resignFirstResponder()
+        }
+    }
+    
+    
+    //handles changing the end date
+    @objc func endDateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YYYY"
+        endDateField.text = dateFormatter.string(from: endDatePicker.date)
     }
     
     //handles changing the date
@@ -70,7 +109,6 @@ class CreateNewChangeViewController: UIViewController, UIPickerViewDelegate, UIP
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/YYYY"
         dateField.text = dateFormatter.string(from: startDatePicker.date)
-        view.endEditing(true)
     }
     
     //how many columns in the picker
@@ -141,10 +179,16 @@ class CreateNewChangeViewController: UIViewController, UIPickerViewDelegate, UIP
                     //else put it in the database
                 } else {
                     db.collection("Access Code Changes").document(currentAccessCode).updateData([self.changeNameField.text!: [userFullName, self.dateField.text!, self.endDateField.text!, self.changeTypeField.text!, self.changeCategory.text!, self.changePriorityField.text!, self.changeRiskField.text!, self.changeImpactField.text!, self.changeShortDescriptionField.text!, self.changeFullDescription.text!]])
+                    if let navController = self.navigationController{
+                        navController.popViewController(animated: true)
+                    }
                 }
                 //if it doesnt make the document
             } else {
                 db.collection("Access Code Changes").document(currentAccessCode).setData([self.changeNameField.text!: [userFullName, self.dateField.text!, self.endDateField.text!, self.changeTypeField.text!, self.changeCategory.text!, self.changePriorityField.text!, self.changeRiskField.text!, self.changeImpactField.text!, self.changeShortDescriptionField.text!, self.changeFullDescription.text!]])
+                if let navController = self.navigationController{
+                    navController.popViewController(animated: true)
+                }
             }
         }
     }
