@@ -9,16 +9,20 @@
 import UIKit
 import Firebase
 
-class EmployeeDesignationEmployerViewController: UIViewController {
+class EmployeeDesignationEmployerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     var tableData: [String] = []
+    var pickedData: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("at designation")
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
-        fillTableData()
+        self.fillTableData()
     }
     
     //fills the table with all the users
@@ -26,12 +30,14 @@ class EmployeeDesignationEmployerViewController: UIViewController {
         let docRef = db.collection("Access Codes").document(currentAccessCode)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists{
+                print("xxxxxxxx")
                 let data = document.data()
                 for docData in data! {
                     if(docData.key != "company name"){
                         self.tableData.append(docData.key)
                     }
                 }
+                print(self.tableData)
                 self.tableView.reloadData()
             } else {
                 print("Document does not exist")
@@ -55,7 +61,15 @@ class EmployeeDesignationEmployerViewController: UIViewController {
     //performs the segue to show the data for the incident the user clicks on
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        pickedData = tableData[indexPath.row]
         self.performSegue(withIdentifier: "assignUser", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "assignUser" {
+            let vc = segue.destination as? UserJobFillViewController
+            vc?.userEmail = pickedData
+        }
     }
 
     /*

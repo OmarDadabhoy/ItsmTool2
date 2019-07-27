@@ -19,6 +19,7 @@
 		22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */; };
 		22EE045C22C4298500417493 /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EE045B22C4298500417493 /* IncidentsViewController.swift */; };
 		22EE9E7322E2659200EF4DD6 /* CreateNewChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EE9E7222E2659200EF4DD6 /* CreateNewChangeViewController.swift */; };
+		22EEB95322ECD3CD00F835F9 /* UserJobFillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EEB95222ECD3CD00F835F9 /* UserJobFillViewController.swift */; };
 		22EEBADE22C458E2005A7CE1 /* CreateNewIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EEBADD22C458E2005A7CE1 /* CreateNewIncidentViewController.swift */; };
 		22EF498A22CC5363004A71EA /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF498922CC5363004A71EA /* AccountSettingsViewController.swift */; };
 		22F1599722CB083700DC0DC9 /* ChannelInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1599622CB083700DC0DC9 /* ChannelInfoViewController.swift */; };
@@ -74,6 +75,7 @@
 		22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		22EE045B22C4298500417493 /* IncidentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentsViewController.swift; sourceTree = "<group>"; };
 		22EE9E7222E2659200EF4DD6 /* CreateNewChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewChangeViewController.swift; sourceTree = "<group>"; };
+		22EEB95222ECD3CD00F835F9 /* UserJobFillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJobFillViewController.swift; sourceTree = "<group>"; };
 		22EEBADD22C458E2005A7CE1 /* CreateNewIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewIncidentViewController.swift; sourceTree = "<group>"; };
 		22EF498922CC5363004A71EA /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		22F1599622CB083700DC0DC9 /* ChannelInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelInfoViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				228F843F22E92543008BA5F1 /* ViewChangeViewController.swift */,
 				2247DC1222EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift */,
 				2247DC1422EBF04D00DD5568 /* EmployeeDesignationEmployerViewController.swift */,
+				22EEB95222ECD3CD00F835F9 /* UserJobFillViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */,
 				226A6EA722C2E73F00FA9255 /* HomeViewController.swift in Sources */,
 				22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */,
+				22EEB95322ECD3CD00F835F9 /* UserJobFillViewController.swift in Sources */,
 				224B984F22E1144900CEAE2C /* ChangesViewController.swift in Sources */,
 				2247DC1322EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift in Sources */,
 				22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */,
