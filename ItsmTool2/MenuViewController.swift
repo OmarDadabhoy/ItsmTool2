@@ -12,6 +12,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var tableView: UITableView!
     var tableData: [String] = ["Home", "Incidents", "Channel Info", "Changes", "Employee Designation", "Go Back To Channel Picker"]
+    var tableSections: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableSections.count
     }
     
     //returns the number of rows

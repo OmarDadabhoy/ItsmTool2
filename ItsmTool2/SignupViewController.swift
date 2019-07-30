@@ -83,7 +83,14 @@ class SignupViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!){ (user, error) in
                             if error == nil{
                                 //add the current user as an employee
-                                self.db.collection("Access Codes").document(accessCode).updateData([self.email.text!: ["Employee", self.fullNameField.text!]])
+                                self.db.collection("Access Codes").document(accessCode).getDocument(){ (document, error) in
+                                    if let document = document, document.exists {
+                                        var data = document.data()
+                                        data![self.email.text!] = ["Employee", self.fullNameField.text!]
+                                        self.db.collection("Access Codes").document(accessCode).setData(data!)
+                                    }
+                                }
+//                                self.db.collection("Access Codes").document(accessCode).updateData([self.email.text!: ["Employee", self.fullNameField.text!]])
                                 //Add the user to the user database and the Auth should make sure this user is not previously registered
                                 self.db.collection("users").document(self.email.text!).setData(["Full Name": self.fullNameField.text!, accessCode: "access code"])
                                 //take them to home

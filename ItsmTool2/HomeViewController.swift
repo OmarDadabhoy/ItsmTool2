@@ -97,8 +97,14 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let docRef = self.db.collection("Access Codes").document(textField.text!)
             docRef.getDocument(){ (document, error) in
                 if let document = document, document.exists {
-//                    self.db.collection("Access Codes"
-                    self.db.collection("Access Codes").document(textField.text!).updateData([self.email: ["Employee", self.fullName]])
+//                    self.db.collection("Access Codes").document(textField.text!).getDocument(){ (document, error) in
+//                        if let document = document, document.exists {
+//                            var data = document.data()
+//                            data![self.email] = ["Employee", self.fullName]
+//                            self.db.collection("Access Codes").document(textField.text!).setData(data!)
+//                        }
+//                    }
+                    self.db.collection("Access Codes").document(textField.text!).setData([self.email: ["Employee", self.fullName]], merge: true)
                     //Add the user to the user database and the Auth should make sure this user is not previously registered
                     self.db.collection("users").document(self.email).updateData([textField.text! : "access code"])
                     self.pickerData.append(textField.text!)
@@ -168,6 +174,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         let fields = docData.value as! [String]
                         if(fields[0] == "Admin"){
                             isAdmin = true
+                        } else {
+                            isAdmin = false
                         }
                     }
                 }
