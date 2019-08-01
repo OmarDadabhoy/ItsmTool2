@@ -89,7 +89,7 @@ class CreateNewChangeViewController: UIViewController, UIPickerViewDelegate, UIP
         toolBar.isUserInteractionEnabled = true
     }
     
-    
+    //exits out of the picker
     @objc func donePicker(){
         for field in fields {
             field.resignFirstResponder()

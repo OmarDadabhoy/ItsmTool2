@@ -14,11 +14,21 @@ class EmployeeDesignationEmployerViewController: UIViewController, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     var tableData: [String] = []
     var pickedData: String = ""
+    var menuButton: UIBarButtonItem = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //menu stuff
+        if self.revealViewController() != nil {
+            print("not nil")
+            menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            //            menuButton = UIBarButtonItem.init(image: , style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            //set the leftBarButtonItem to the MenuButton
+            self.revealViewController().navigationItem.leftBarButtonItem = menuButton
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
 
-        print("at designation")
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -34,7 +44,10 @@ class EmployeeDesignationEmployerViewController: UIViewController, UITableViewDe
                 let data = document.data()
                 for docData in data! {
                     if(docData.key != "company name"){
-                        self.tableData.append(docData.key)
+                        let newVal: [String] = docData.value as! [String]
+                        if(newVal[0] != "Admin"){
+                            self.tableData.append(docData.key)
+                        }
                     }
                 }
                 print(self.tableData)
@@ -68,10 +81,14 @@ class EmployeeDesignationEmployerViewController: UIViewController, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "assignUser" {
             let vc = segue.destination as? UserJobFillViewController
-            vc?.userEmail = pickedData
+            vc?.userEmailHere = pickedData
         }
     }
 
+    //view the jobs you have assigned
+    @IBAction func viewJobsYouHaveAssigned(_ sender: Any) {
+        self.performSegue(withIdentifier: "viewJobsYouHaveAssigned", sender: self)
+    }
     /*
     // MARK: - Navigation
 

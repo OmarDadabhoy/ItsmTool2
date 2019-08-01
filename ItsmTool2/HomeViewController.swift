@@ -20,15 +20,25 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var groupPickerField: UITextField!
     var groupPicker = UIPickerView()
     var toolBar = UIToolbar()
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //set up the activity indicator
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = UIColor.black
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         self.groupPicker.delegate = self
         self.groupPickerField.inputView = groupPicker
         fillPickerData()
         
+        //set up the toolbar
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         toolBar.sizeToFit()
@@ -67,6 +77,9 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 } else {
                     self.groupPickerField.text = "You are not currently in any channels please join a channel"
                 }
+                //end the activity loader
+                self.activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
             } else {
                 print("Document does not exist")
             }

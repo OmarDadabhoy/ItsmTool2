@@ -15,6 +15,7 @@
 		228F844022E92543008BA5F1 /* ViewChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F843F22E92543008BA5F1 /* ViewChangeViewController.swift */; };
 		229EFD4C22C5BCAF004B3C0E /* ViewIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EFD4B22C5BCAF004B3C0E /* ViewIncidentViewController.swift */; };
 		22AE984522CBF35E00E256B7 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE984422CBF35E00E256B7 /* UserInfoViewController.swift */; };
+		22B709A522F39489008E46AB /* ViewJobAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B709A422F39489008E46AB /* ViewJobAdminViewController.swift */; };
 		22ED0E6522C318C200ACAC2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ED0E6422C318C200ACAC2E /* Constants.swift */; };
 		22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */; };
 		22EE045C22C4298500417493 /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EE045B22C4298500417493 /* IncidentsViewController.swift */; };
@@ -35,7 +36,9 @@
 		22F35FC822CD531D0087AC69 /* ChannelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F35FC722CD531D0087AC69 /* ChannelSettingsViewController.swift */; };
 		22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3632E22C1C62B00BC17AD /* MenuViewController.swift */; };
 		22F657D022BED1E8005F3C5C /* men.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F657CF22BED1E8005F3C5C /* men.png */; };
+		22F6AB5622F272620022ECA8 /* JobsAdminHasAssignedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F6AB5522F272620022ECA8 /* JobsAdminHasAssignedViewController.swift */; };
 		22FC0E4E22BDA4AB00151576 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0E4C22BDA4AB00151576 /* SWRevealViewController.m */; };
+		22FC64C122F11AAF00178498 /* ViewJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC64C022F11AAF00178498 /* ViewJobViewController.swift */; };
 		89681B2948C8EFD4B23DBB81 /* Pods_ItsmTool2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B25BFC6717B95A7CA52FC70 /* Pods_ItsmTool2.framework */; };
 		CB8103A73E98ADC3FC764A5E /* Pods_ItsmTool2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1470E74F41D69ED600EB9DDA /* Pods_ItsmTool2UITests.framework */; };
 		F35D350DD49506BA1DB30393 /* Pods_ItsmTool2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21910222386D8F4AFC869B59 /* Pods_ItsmTool2Tests.framework */; };
@@ -70,6 +73,7 @@
 		228F843F22E92543008BA5F1 /* ViewChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChangeViewController.swift; sourceTree = "<group>"; };
 		229EFD4B22C5BCAF004B3C0E /* ViewIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIncidentViewController.swift; sourceTree = "<group>"; };
 		22AE984422CBF35E00E256B7 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		22B709A422F39489008E46AB /* ViewJobAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJobAdminViewController.swift; sourceTree = "<group>"; };
 		22ED0E6422C318C200ACAC2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		22ED3CF922DE8A9400AF7DE9 /* ItsmTool2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ItsmTool2.entitlements; sourceTree = "<group>"; };
 		22EDB57122BAF502009CD5C9 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
@@ -97,9 +101,11 @@
 		22F35FC722CD531D0087AC69 /* ChannelSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSettingsViewController.swift; sourceTree = "<group>"; };
 		22F3632E22C1C62B00BC17AD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		22F657CF22BED1E8005F3C5C /* men.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = men.png; path = ../../../men.png; sourceTree = "<group>"; };
+		22F6AB5522F272620022ECA8 /* JobsAdminHasAssignedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsAdminHasAssignedViewController.swift; sourceTree = "<group>"; };
 		22FC0E4B22BDA4AA00151576 /* ItsmTool2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItsmTool2-Bridging-Header.h"; sourceTree = "<group>"; };
 		22FC0E4C22BDA4AB00151576 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
 		22FC0E4D22BDA4AB00151576 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
+		22FC64C022F11AAF00178498 /* ViewJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJobViewController.swift; sourceTree = "<group>"; };
 		2733B8482659A0F95A81C3AA /* Pods-ItsmTool2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2UITests.release.xcconfig"; path = "Target Support Files/Pods-ItsmTool2UITests/Pods-ItsmTool2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		37F02C08E66CD7A2BED0DEC0 /* Pods-ItsmTool2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2Tests.release.xcconfig"; path = "Target Support Files/Pods-ItsmTool2Tests/Pods-ItsmTool2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5173B7C1ED68DAC9D5F749DA /* Pods-ItsmTool2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsmTool2UITests.debug.xcconfig"; path = "Target Support Files/Pods-ItsmTool2UITests/Pods-ItsmTool2UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +206,9 @@
 				2247DC1222EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift */,
 				2247DC1422EBF04D00DD5568 /* EmployeeDesignationEmployerViewController.swift */,
 				22EEB95222ECD3CD00F835F9 /* UserJobFillViewController.swift */,
+				22FC64C022F11AAF00178498 /* ViewJobViewController.swift */,
+				22F6AB5522F272620022ECA8 /* JobsAdminHasAssignedViewController.swift */,
+				22B709A422F39489008E46AB /* ViewJobAdminViewController.swift */,
 			);
 			path = ItsmTool2;
 			sourceTree = "<group>";
@@ -488,18 +497,21 @@
 				22EF498A22CC5363004A71EA /* AccountSettingsViewController.swift in Sources */,
 				22FC0E4E22BDA4AB00151576 /* SWRevealViewController.m in Sources */,
 				22F2B7BF22AB2E08000EE7AB /* LoginViewController.swift in Sources */,
+				22B709A522F39489008E46AB /* ViewJobAdminViewController.swift in Sources */,
 				22F2B79322AB2BC0000EE7AB /* ViewController.swift in Sources */,
 				22F2B7C122AB2E17000EE7AB /* SignupViewController.swift in Sources */,
 				226A6EA722C2E73F00FA9255 /* HomeViewController.swift in Sources */,
 				22EDB57222BAF502009CD5C9 /* ChannelViewController.swift in Sources */,
 				22EEB95322ECD3CD00F835F9 /* UserJobFillViewController.swift in Sources */,
 				224B984F22E1144900CEAE2C /* ChangesViewController.swift in Sources */,
+				22FC64C122F11AAF00178498 /* ViewJobViewController.swift in Sources */,
 				2247DC1322EBF02900DD5568 /* EmployeeDesignationEmployeeViewController.swift in Sources */,
 				22F2B79122AB2BC0000EE7AB /* AppDelegate.swift in Sources */,
 				22F3632F22C1C62B00BC17AD /* MenuViewController.swift in Sources */,
 				22EEBADE22C458E2005A7CE1 /* CreateNewIncidentViewController.swift in Sources */,
 				228F844022E92543008BA5F1 /* ViewChangeViewController.swift in Sources */,
 				22EE9E7322E2659200EF4DD6 /* CreateNewChangeViewController.swift in Sources */,
+				22F6AB5622F272620022ECA8 /* JobsAdminHasAssignedViewController.swift in Sources */,
 				22EE045C22C4298500417493 /* IncidentsViewController.swift in Sources */,
 				229EFD4C22C5BCAF004B3C0E /* ViewIncidentViewController.swift in Sources */,
 				22ED0E6522C318C200ACAC2E /* Constants.swift in Sources */,

@@ -1,50 +1,38 @@
 //
-//  EmployeeDesignationEmployeeViewController.swift
+//  JobsAdminHasAssignedViewController.swift
 //  ItsmTool2
 //
-//  Created by Omar Dadabhoy on 7/26/19.
+//  Created by Omar Dadabhoy on 7/31/19.
 //  Copyright © 2019 Omar Dadabhoy. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class EmployeeDesignationEmployeeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class JobsAdminHasAssignedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet weak var tableView: UITableView!
     var tableData: [String] = []
-    var pickedIndex: Int = 0
     var tableDataInfo: [[String]] = []
-    var menuButton: UIBarButtonItem = UIBarButtonItem()
+    var pickedIndex: Int = 0
+    var tableKeys: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //menu stuff
-        if self.revealViewController() != nil {
-            print("not nil")
-            menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-            //            menuButton = UIBarButtonItem.init(image: , style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-            //set the leftBarButtonItem to the MenuButton
-            self.revealViewController().navigationItem.leftBarButtonItem = menuButton
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
+        // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
         fillTableData()
     }
     
     //fills the table data
     func fillTableData(){
-        let docRef = db.collection("Employee Designation").document(currentAccessCode)
-        //find all the jobs for the user
-        docRef.getDocument { (document, error) in
+        db.collection("Employee Designation").document(currentAccessCode).getDocument(){ (document, error) in
             if let document = document, document.exists {
-                var found: Bool = false
-                var result: [String: [String]] = [:]
                 let data = document.data()
+                var found: Bool = false
+                var result: [String:[String]] = [:]
                 for docData in data! {
                     if(docData.key == userEmail){
                         found = true
@@ -52,29 +40,30 @@ class EmployeeDesignationEmployeeViewController: UIViewController, UITableViewDa
                     }
                 }
                 if(!found){
-                    let alertController = UIAlertController(title: "You have no jobs at the moment", message: nil, preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "You have not assigned any jobs", message: nil, preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                     alertController.addAction(alertAction)
-                    self.present(alertController, animated: true)
+                    self.present(alertController, animated: true, completion: nil)
                 } else {
                     for val in result{
                         self.tableData.append(val.value[0])
+                        self.tableKeys.append(val.key)
                         self.tableDataInfo.append(val.value)
                     }
                     if(self.tableData.isEmpty){
-                        let alertController = UIAlertController(title: "You have no jobs at the moment", message: nil, preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "You have not assigned any jobs", message: nil, preferredStyle: .alert)
                         let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                         alertController.addAction(alertAction)
-                        self.present(alertController, animated: true)
+                        self.present(alertController, animated: true, completion: nil)
                     } else {
                         self.tableView.reloadData()
                     }
                 }
             } else {
-                let alertController = UIAlertController(title: "You have no jobs at the moment", message: nil, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "You have not assigned any jobs", message: nil, preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 alertController.addAction(alertAction)
-                self.present(alertController, animated: true)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -96,17 +85,16 @@ class EmployeeDesignationEmployeeViewController: UIViewController, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         pickedIndex = indexPath.row
-        self.performSegue(withIdentifier: "viewJob", sender: self)
+        self.performSegue(withIdentifier: "viewJobYouHaveAskedFor", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is ViewJobViewController {
-            let vc = segue.destination as? ViewJobViewController
-            vc?.currentDocData = tableDataInfo[pickedIndex]
-            vc?.currentDocKey = tableData[pickedIndex]
+        if segue.destination is ViewJobAdminViewController {
+            let vc = segue.destination as? ViewJobAdminViewController
+            vc?.currentInfo = tableDataInfo[pickedIndex]
+            vc?.currentKey = tableKeys[pickedIndex]
         }
     }
-    
 
     /*
     // MARK: - Navigation

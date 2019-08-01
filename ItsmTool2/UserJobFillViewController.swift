@@ -13,14 +13,47 @@ class UserJobFillViewController: UIViewController {
 
     @IBOutlet weak var shortDescription: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
-    var userEmail: String = ""
-    
+    var userEmailHere: String = ""
+    @IBOutlet weak var DueDate: UITextField!
+    var datePicker = UIDatePicker()
+    var toolBar = UIToolbar()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.descriptionField.layer.borderWidth = 2.0
         self.descriptionField.layer.borderColor = UIColor.gray.cgColor
+        
+        //due date
+        DueDate.inputView = datePicker
+        DueDate.inputAccessoryView = toolBar
+        
+        //date stuff
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(self.dateChanged(datePicker:)), for: .valueChanged)
+        
+        //tool bar
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePicker))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+    }
+    
+    //exits out of the picker
+    @objc func donePicker(){
+        DueDate.resignFirstResponder()
+    }
+    
+    //handles changing the date
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YYYY"
+        DueDate.text = dateFormatter.string(from: datePicker.date)
     }
     
     //sumbits the role/todo to the server
@@ -29,9 +62,18 @@ class UserJobFillViewController: UIViewController {
         docRef.getDocument { (document, error) in
             //if the document exists
             if let document = document, document.exists {
-                db.collection("Employee Designation").document(currentAccessCode).updateData([self.userEmail: [self.shortDescription.text, self.descriptionField.text]])
+                let data = document.data()
+                var key: String = SignupViewController.randomString(length: 6)
+                
+                db.collection("Employee Designation").document(currentAccessCode).setData([self.userEmailHere: [key : [self.shortDescription.text!, self.descriptionField.text!, self.DueDate.text!, userEmail]]], merge: true)
+                db.collection("Employee Designation").document(currentAccessCode).setData([userEmail: [key : [self.shortDescription.text!, self.descriptionField.text!, self.DueDate.text!, self.userEmailHere]]], merge: true)
+                if let navController = self.navigationController{
+                    navController.popViewController(animated: true)
+                }
             } else {
-                db.collection("Employee Designation").document(currentAccessCode).setData([self.userEmail: [self.shortDescription.text, self.descriptionField.text]])
+                var key: String = SignupViewController.randomString(length: 6)
+                db.collection("Employee Designation").document(currentAccessCode).setData([self.userEmailHere: [key : [self.shortDescription.text!, self.descriptionField.text!, self.DueDate.text!, userEmail]]], merge: true)
+                db.collection("Employee Designation").document(currentAccessCode).setData([userEmail: [key : [self.shortDescription.text!, self.descriptionField.text!, self.DueDate.text!, self.userEmailHere]]], merge: true)
                 if let navController = self.navigationController{
                     navController.popViewController(animated: true)
                 }

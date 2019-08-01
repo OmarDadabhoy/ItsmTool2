@@ -22,10 +22,6 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return tableSections.count
-    }
-    
     //returns the number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableData.count
