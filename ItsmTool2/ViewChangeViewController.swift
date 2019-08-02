@@ -23,6 +23,7 @@ class ViewChangeViewController: UIViewController {
     @IBOutlet weak var changeShortDescription: UITextField!
     @IBOutlet weak var changeFullDescription: UITextView!
     @IBOutlet weak var deleteChange: UIButton!
+    var creator: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,7 @@ class ViewChangeViewController: UIViewController {
         }
         getData() { (data) in
             //set text up
+            self.creator = data[0]
             self.changeTypeField.text = data[3]
             self.changeStartDate.text = data[1]
             self.changeEndDate.text = data[2]
@@ -47,6 +49,10 @@ class ViewChangeViewController: UIViewController {
             self.changeShortDescription.text = data[8]
             self.changeFullDescription.text = data[9]
             
+            
+            if(!isAdmin && self.creator != userEmail){
+                
+            }
             self.changeTypeField.isUserInteractionEnabled = false
             self.changeStartDate.isUserInteractionEnabled = false
             self.changeEndDate.isUserInteractionEnabled = false

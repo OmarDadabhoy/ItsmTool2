@@ -178,14 +178,14 @@ class CreateNewChangeViewController: UIViewController, UIPickerViewDelegate, UIP
                     self.present(alertController, animated: true, completion: nil)
                     //else put it in the database
                 } else {
-                    db.collection("Access Code Changes").document(currentAccessCode).updateData([self.changeNameField.text!: [userFullName, self.dateField.text!, self.endDateField.text!, self.changeTypeField.text!, self.changeCategory.text!, self.changePriorityField.text!, self.changeRiskField.text!, self.changeImpactField.text!, self.changeShortDescriptionField.text!, self.changeFullDescription.text!]])
+                    db.collection("Access Code Changes").document(currentAccessCode).updateData([self.changeNameField.text!: [userEmail, self.dateField.text!, self.endDateField.text!, self.changeTypeField.text!, self.changeCategory.text!, self.changePriorityField.text!, self.changeRiskField.text!, self.changeImpactField.text!, self.changeShortDescriptionField.text!, self.changeFullDescription.text!]])
                     if let navController = self.navigationController{
                         navController.popViewController(animated: true)
                     }
                 }
                 //if it doesnt make the document
             } else {
-                db.collection("Access Code Changes").document(currentAccessCode).setData([self.changeNameField.text!: [userFullName, self.dateField.text!, self.endDateField.text!, self.changeTypeField.text!, self.changeCategory.text!, self.changePriorityField.text!, self.changeRiskField.text!, self.changeImpactField.text!, self.changeShortDescriptionField.text!, self.changeFullDescription.text!]])
+                db.collection("Access Code Changes").document(currentAccessCode).setData([self.changeNameField.text!: [userEmail, self.dateField.text!, self.endDateField.text!, self.changeTypeField.text!, self.changeCategory.text!, self.changePriorityField.text!, self.changeRiskField.text!, self.changeImpactField.text!, self.changeShortDescriptionField.text!, self.changeFullDescription.text!]])
                 if let navController = self.navigationController{
                     navController.popViewController(animated: true)
                 }
