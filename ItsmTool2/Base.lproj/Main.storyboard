@@ -1262,9 +1262,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tZP-ys-Kdv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tZP-ys-Kdv">
                                 <rect key="frame" x="0.0" y="147" width="414" height="749"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="Z6T-uT-JvC">
@@ -1277,9 +1276,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxx-jT-uwG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxx-jT-uwG">
                                 <rect key="frame" x="244" y="109" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create a New Change"/>
                                 <connections>
                                     <action selector="createNewChange:" destination="XLc-Qt-3YF" eventType="touchUpInside" id="Ifw-OH-oHj"/>
@@ -1287,6 +1285,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SYq-ya-dao" firstAttribute="trailing" secondItem="Uxx-jT-uwG" secondAttribute="trailing" constant="20" id="3br-eU-pxv"/>
+                            <constraint firstItem="tZP-ys-Kdv" firstAttribute="top" secondItem="Uxx-jT-uwG" secondAttribute="bottom" constant="8" symbolic="YES" id="7qr-S5-jxw"/>
+                            <constraint firstItem="Uxx-jT-uwG" firstAttribute="top" secondItem="SYq-ya-dao" secondAttribute="top" constant="65" id="NwK-5A-oht"/>
+                            <constraint firstAttribute="bottom" secondItem="tZP-ys-Kdv" secondAttribute="bottom" id="Pzv-i8-pMI"/>
+                            <constraint firstItem="tZP-ys-Kdv" firstAttribute="leading" secondItem="SYq-ya-dao" secondAttribute="leading" id="fd1-jk-vBI"/>
+                            <constraint firstItem="tZP-ys-Kdv" firstAttribute="trailing" secondItem="SYq-ya-dao" secondAttribute="trailing" id="oht-lh-ycE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SYq-ya-dao"/>
                     </view>
                     <connections>
@@ -1615,8 +1621,8 @@
                         <segue destination="bhq-IS-wfA" kind="custom" identifier="goToChannelInfo" customClass="SWRevealViewControllerSeguePushController" id="nWu-QJ-mxb"/>
                         <segue destination="Oln-94-tTV" kind="custom" identifier="goToIncidents" customClass="SWRevealViewControllerSeguePushController" id="VuU-mm-MyW"/>
                         <segue destination="m2p-Is-8Yf" kind="custom" identifier="goBackHome" customClass="SWRevealViewControllerSeguePushController" id="wMB-Th-H5R"/>
-                        <segue destination="Bav-pz-12U" kind="show" identifier="goToEmployeeDesignation2" id="I5O-nB-fjz"/>
-                        <segue destination="xlv-kG-dxQ" kind="show" identifier="goToEmployeeDesignation" id="7ra-XH-ArC"/>
+                        <segue destination="Bav-pz-12U" kind="show" identifier="goToEmployeeDesignation2" customClass="SWRevealViewControllerSeguePushController" id="I5O-nB-fjz"/>
+                        <segue destination="xlv-kG-dxQ" kind="show" identifier="goToEmployeeDesignation" customClass="SWRevealViewControllerSeguePushController" id="7ra-XH-ArC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXe-z4-L0W" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -67,6 +67,7 @@ class ChangesViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.refreshControl.endRefreshing()
             } else {
                 print("Document does not exist")
+                self.refreshControl.endRefreshing()
             }
         }
     }

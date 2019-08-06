@@ -76,6 +76,7 @@ class IncidentsViewController: UIViewController, UITableViewDataSource, UITableV
                 self.refreshControl.endRefreshing()
             } else {
                 print("Document does not exist")
+                self.refreshControl.endRefreshing()
             }
         }
     }

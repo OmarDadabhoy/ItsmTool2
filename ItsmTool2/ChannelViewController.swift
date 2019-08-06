@@ -15,9 +15,8 @@ class ChannelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        
+        self.revealViewController().navigationItem.title = userFullName
         if self.revealViewController() != nil {
             print("not nil")
             menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))

@@ -69,6 +69,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         //set the name here
                     } else {
                         self.fullName = doc.value as! String
+                        self.navigationItem.title = self.fullName
                     }
                 }
                 print(self.pickerData)
